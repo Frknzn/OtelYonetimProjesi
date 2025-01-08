@@ -16,7 +16,7 @@ namespace OtelYönetimProjesi
 {
     public partial class Form1 : Form
     {
-
+        // Merhaba Github
 
         private Yonetici_Bussiness_Layer yoneticibussinesslayer;
         
