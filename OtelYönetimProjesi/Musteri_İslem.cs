@@ -57,6 +57,7 @@ namespace OtelYönetimProjesi
             {
                 MessageBox.Show( mesaj);
                 Yonetici_DAL.MusteriGoruntule(MusteriListeGridView);
+                
             }
             else
             {
@@ -95,13 +96,23 @@ namespace OtelYönetimProjesi
                     int MusteriId = Convert.ToInt32(MusteriListeGridView.SelectedRows[0].Cells["musteri_id"].Value);
 
 
-                    if (Yonetici_DAL.MusteriSil(MusteriId))
+                    //if (Yonetici_DAL.MusteriSil(MusteriId))
+                    //{
+                    //    MessageBox.Show("Müşteri başarıyla silindi");
+                    //    Yonetici_DAL.MusteriGoruntule(MusteriListeGridView);
+
+                    //}
+                    //else MessageBox.Show("Hata : Müşteri silinemedi");
+
+                    if (Yonetici_Bussiness_Layer.MusteriSilBLL(MusteriId))
                     {
                         MessageBox.Show("Müşteri başarıyla silindi");
                         Yonetici_DAL.MusteriGoruntule(MusteriListeGridView);
-
                     }
-                    else MessageBox.Show("Hata : Müşteri silinemedi");
+                    else
+                    {
+                        MessageBox.Show("Hata : Müşteri silinemedi");
+                    }
                 }
                 else
                 {
@@ -144,6 +155,11 @@ namespace OtelYönetimProjesi
                 
             }
                      
+        }
+
+        private void Musteri_İslem_Load(object sender, EventArgs e)
+        {
+            Yonetici_DAL.MusteriGoruntule(MusteriListeGridView);
         }
     }
 }

@@ -47,7 +47,7 @@ namespace OtelYönetimProjesi
 
         private void Personel_İslem_Load(object sender, EventArgs e)
         {
-
+            Yonetici_DAL.PersonelGoruntule(PersonelListeGridView);
         }
         private int selectedPersonelID;
         private void PersonelListeGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -91,12 +91,22 @@ namespace OtelYönetimProjesi
                     int PersonelId = Convert.ToInt32(PersonelListeGridView.SelectedRows[0].Cells["personel_id"].Value);
 
 
-                    if (Yonetici_DAL.PersonelSil(PersonelId))
+                    //if (Yonetici_DAL.PersonelSil(PersonelId))
+                    //{
+                    //    MessageBox.Show("Personel başarıyla silindi");
+                    //    Yonetici_DAL.PersonelGoruntule(PersonelListeGridView);
+                    //}
+                    //else MessageBox.Show("Hata : Personel silinemedi");
+
+                    if (Yonetici_Bussiness_Layer.PersonelSilBLL(PersonelId))
                     {
-                        MessageBox.Show("Personel başarıyla silindi");
+                        MessageBox.Show("Personel başarıyla güncellendi");
                         Yonetici_DAL.PersonelGoruntule(PersonelListeGridView);
                     }
-                    else MessageBox.Show("Hata : Personel silinemedi");
+                    else
+                    {
+                        MessageBox.Show("Hata : Personel siliemedi");
+                    }
                 }
                 else
                 {

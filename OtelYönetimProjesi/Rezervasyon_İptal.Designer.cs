@@ -112,6 +112,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Rezervasyon_İptal";
             this.Size = new System.Drawing.Size(1182, 751);
+            this.Load += new System.EventHandler(this.Rezervasyon_İptal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.RezervasyonListeGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

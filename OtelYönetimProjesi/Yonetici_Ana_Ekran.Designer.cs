@@ -49,14 +49,15 @@
             this.AnaEkranCıkıs = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.yonetici_Ana_Sayfa1 = new OtelYönetimProjesi.Yonetici_Ana_Sayfa();
+            this.rezervasyon_Yap1 = new OtelYönetimProjesi.Rezervasyon_Yap();
             this.yonetici_Kayıt1 = new OtelYönetimProjesi.Yonetici_Kayıt();
-            this.rezervasyon_İslem1 = new OtelYönetimProjesi.Rezervasyon_İslem();
             this.rezervasyon_İptal1 = new OtelYönetimProjesi.Rezervasyon_İptal();
             this.personel_İslem1 = new OtelYönetimProjesi.Personel_İslem();
             this.oda_Islem1 = new OtelYönetimProjesi.Oda_Islem();
             this.musteri_İslem1 = new OtelYönetimProjesi.Musteri_İslem();
             this.hesap_Ayarları1 = new OtelYönetimProjesi.Hesap_Ayarları();
             this.fatura_Kayıt_Ekranı1 = new OtelYönetimProjesi.Fatura_Kayıt_Ekranı();
+            this.GuncelTarihtxt = new System.Windows.Forms.TextBox();
             this.YoneticiUstPanel.SuspendLayout();
             this.YoneticiYanPanel.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -73,6 +74,7 @@
             this.YoneticiUstPanel.Name = "YoneticiUstPanel";
             this.YoneticiUstPanel.Size = new System.Drawing.Size(1522, 33);
             this.YoneticiUstPanel.TabIndex = 1;
+            this.YoneticiUstPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.YoneticiUstPanel_Paint);
             // 
             // panel2
             // 
@@ -98,7 +100,7 @@
             this.button1.ForeColor = System.Drawing.Color.Lavender;
             this.button1.Location = new System.Drawing.Point(3, 0);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(60, 37);
+            this.button1.Size = new System.Drawing.Size(87, 39);
             this.button1.TabIndex = 9;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
@@ -280,8 +282,8 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.yonetici_Ana_Sayfa1);
+            this.panel3.Controls.Add(this.rezervasyon_Yap1);
             this.panel3.Controls.Add(this.yonetici_Kayıt1);
-            this.panel3.Controls.Add(this.rezervasyon_İslem1);
             this.panel3.Controls.Add(this.rezervasyon_İptal1);
             this.panel3.Controls.Add(this.personel_İslem1);
             this.panel3.Controls.Add(this.oda_Islem1);
@@ -297,33 +299,33 @@
             // yonetici_Ana_Sayfa1
             // 
             this.yonetici_Ana_Sayfa1.BackColor = System.Drawing.Color.Lavender;
+            this.yonetici_Ana_Sayfa1.Cursor = System.Windows.Forms.Cursors.Default;
             this.yonetici_Ana_Sayfa1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.yonetici_Ana_Sayfa1.Location = new System.Drawing.Point(0, 0);
+            this.yonetici_Ana_Sayfa1.Location = new System.Drawing.Point(-1, 0);
             this.yonetici_Ana_Sayfa1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.yonetici_Ana_Sayfa1.Name = "yonetici_Ana_Sayfa1";
-            this.yonetici_Ana_Sayfa1.Size = new System.Drawing.Size(1189, 760);
+            this.yonetici_Ana_Sayfa1.Size = new System.Drawing.Size(1182, 751);
             this.yonetici_Ana_Sayfa1.TabIndex = 8;
-            this.yonetici_Ana_Sayfa1.Load += new System.EventHandler(this.yonetici_Ana_Sayfa1_Load);
+            // 
+            // rezervasyon_Yap1
+            // 
+            this.rezervasyon_Yap1.BackColor = System.Drawing.Color.Lavender;
+            this.rezervasyon_Yap1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.rezervasyon_Yap1.Location = new System.Drawing.Point(0, 3);
+            this.rezervasyon_Yap1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rezervasyon_Yap1.Name = "rezervasyon_Yap1";
+            this.rezervasyon_Yap1.Size = new System.Drawing.Size(1188, 757);
+            this.rezervasyon_Yap1.TabIndex = 7;
             // 
             // yonetici_Kayıt1
             // 
             this.yonetici_Kayıt1.BackColor = System.Drawing.Color.Lavender;
             this.yonetici_Kayıt1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.yonetici_Kayıt1.Location = new System.Drawing.Point(-3, 0);
+            this.yonetici_Kayıt1.Location = new System.Drawing.Point(-1, 0);
             this.yonetici_Kayıt1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.yonetici_Kayıt1.Name = "yonetici_Kayıt1";
-            this.yonetici_Kayıt1.Size = new System.Drawing.Size(1191, 760);
-            this.yonetici_Kayıt1.TabIndex = 7;
-            // 
-            // rezervasyon_İslem1
-            // 
-            this.rezervasyon_İslem1.BackColor = System.Drawing.Color.Lavender;
-            this.rezervasyon_İslem1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.rezervasyon_İslem1.Location = new System.Drawing.Point(58, 38);
-            this.rezervasyon_İslem1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.rezervasyon_İslem1.Name = "rezervasyon_İslem1";
-            this.rezervasyon_İslem1.Size = new System.Drawing.Size(1188, 761);
-            this.rezervasyon_İslem1.TabIndex = 6;
+            this.yonetici_Kayıt1.Size = new System.Drawing.Size(1182, 751);
+            this.yonetici_Kayıt1.TabIndex = 6;
             // 
             // rezervasyon_İptal1
             // 
@@ -332,24 +334,24 @@
             this.rezervasyon_İptal1.Location = new System.Drawing.Point(0, 0);
             this.rezervasyon_İptal1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rezervasyon_İptal1.Name = "rezervasyon_İptal1";
-            this.rezervasyon_İptal1.Size = new System.Drawing.Size(1188, 760);
+            this.rezervasyon_İptal1.Size = new System.Drawing.Size(1182, 751);
             this.rezervasyon_İptal1.TabIndex = 5;
             // 
             // personel_İslem1
             // 
             this.personel_İslem1.BackColor = System.Drawing.Color.Lavender;
             this.personel_İslem1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.personel_İslem1.Location = new System.Drawing.Point(-2, 0);
+            this.personel_İslem1.Location = new System.Drawing.Point(0, 0);
             this.personel_İslem1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.personel_İslem1.Name = "personel_İslem1";
-            this.personel_İslem1.Size = new System.Drawing.Size(1190, 751);
+            this.personel_İslem1.Size = new System.Drawing.Size(1182, 751);
             this.personel_İslem1.TabIndex = 4;
             // 
             // oda_Islem1
             // 
             this.oda_Islem1.BackColor = System.Drawing.Color.Lavender;
             this.oda_Islem1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.oda_Islem1.Location = new System.Drawing.Point(0, 0);
+            this.oda_Islem1.Location = new System.Drawing.Point(-2, 0);
             this.oda_Islem1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.oda_Islem1.Name = "oda_Islem1";
             this.oda_Islem1.Size = new System.Drawing.Size(1182, 751);
@@ -359,7 +361,7 @@
             // 
             this.musteri_İslem1.BackColor = System.Drawing.Color.Lavender;
             this.musteri_İslem1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.musteri_İslem1.Location = new System.Drawing.Point(-2, 0);
+            this.musteri_İslem1.Location = new System.Drawing.Point(0, 0);
             this.musteri_İslem1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.musteri_İslem1.Name = "musteri_İslem1";
             this.musteri_İslem1.Size = new System.Drawing.Size(1182, 751);
@@ -369,7 +371,7 @@
             // 
             this.hesap_Ayarları1.BackColor = System.Drawing.Color.Lavender;
             this.hesap_Ayarları1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.hesap_Ayarları1.Location = new System.Drawing.Point(-1, 0);
+            this.hesap_Ayarları1.Location = new System.Drawing.Point(0, 0);
             this.hesap_Ayarları1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.hesap_Ayarları1.Name = "hesap_Ayarları1";
             this.hesap_Ayarları1.Size = new System.Drawing.Size(1182, 751);
@@ -379,11 +381,21 @@
             // 
             this.fatura_Kayıt_Ekranı1.BackColor = System.Drawing.Color.Lavender;
             this.fatura_Kayıt_Ekranı1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.fatura_Kayıt_Ekranı1.Location = new System.Drawing.Point(-1, 0);
+            this.fatura_Kayıt_Ekranı1.Location = new System.Drawing.Point(1, 0);
             this.fatura_Kayıt_Ekranı1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.fatura_Kayıt_Ekranı1.Name = "fatura_Kayıt_Ekranı1";
             this.fatura_Kayıt_Ekranı1.Size = new System.Drawing.Size(1182, 751);
             this.fatura_Kayıt_Ekranı1.TabIndex = 0;
+            // 
+            // GuncelTarihtxt
+            // 
+            this.GuncelTarihtxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(0)))), ((int)(((byte)(52)))));
+            this.GuncelTarihtxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.GuncelTarihtxt.ForeColor = System.Drawing.Color.Lavender;
+            this.GuncelTarihtxt.Location = new System.Drawing.Point(1304, 5);
+            this.GuncelTarihtxt.Name = "GuncelTarihtxt";
+            this.GuncelTarihtxt.Size = new System.Drawing.Size(210, 27);
+            this.GuncelTarihtxt.TabIndex = 13;
             // 
             // Yonetici_Ana_Ekran
             // 
@@ -391,6 +403,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(1522, 793);
+            this.Controls.Add(this.GuncelTarihtxt);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.YoneticiYanPanel);
             this.Controls.Add(this.YoneticiUstPanel);
@@ -405,6 +418,7 @@
             this.YoneticiYanPanel.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -427,14 +441,15 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
+        private Yonetici_Kayıt yonetici_Kayıt1;
         private Rezervasyon_İptal rezervasyon_İptal1;
         private Personel_İslem personel_İslem1;
         private Oda_Islem oda_Islem1;
         private Musteri_İslem musteri_İslem1;
         private Hesap_Ayarları hesap_Ayarları1;
         private Fatura_Kayıt_Ekranı fatura_Kayıt_Ekranı1;
-        private Rezervasyon_İslem rezervasyon_İslem1;
         private Yonetici_Ana_Sayfa yonetici_Ana_Sayfa1;
-        private Yonetici_Kayıt yonetici_Kayıt1;
+        private Rezervasyon_Yap rezervasyon_Yap1;
+        private System.Windows.Forms.TextBox GuncelTarihtxt;
     }
 }

@@ -14,7 +14,7 @@ namespace OtelYönetimProjesi
 {
     public partial class Oda_Islem : UserControl
     {
-        private Yonetici_Bussiness_Layer yoneticibussinesslayer;
+        public Yonetici_Bussiness_Layer yoneticibussinesslayer;
         public Oda_Islem()
         {
             InitializeComponent();
@@ -31,16 +31,16 @@ namespace OtelYönetimProjesi
             string OdaTur = OdaTurtxt.Text;
             string OdaFiyat = OdaFiyattxt.Text;
 
-            bool kayıt = Yonetici_DAL.OdaKaydet(OdaNumara, OdaTur, OdaFiyat);
-
-            if (kayıt)
+            //bool kayıt = Yonetici_DAL.OdaKaydet(OdaNumara, OdaTur, OdaFiyat);
+            (bool basarili ,string mesaj) = Yonetici_Bussiness_Layer.OdaKaydetBLL(OdaNumara, OdaTur, OdaFiyat);
+            if (basarili)
             {
                 MessageBox.Show("Oda sisteme başarıyla kaydedildi");
                 Yonetici_DAL.OdaGoruntule(OdaListeGridView);
             }
             else
             {
-                MessageBox.Show("Hata : Oda sisteme kaydedilemedi");
+                MessageBox.Show("Hata : Oda sisteme kaydedilemedi : " + mesaj);
             }
         }
 
@@ -72,13 +72,23 @@ namespace OtelYönetimProjesi
                     int OdaId = Convert.ToInt32(OdaListeGridView.SelectedRows[0].Cells["oda_id"].Value);
 
 
-                    if (Yonetici_DAL.OdaSil(OdaId))
+                    //if (Yonetici_DAL.OdaSil(OdaId))
+                    //{
+                    //    MessageBox.Show("Oda başarıyla silindi");
+                    //    Yonetici_DAL.OdaGoruntule(OdaListeGridView);
+
+                    //}
+                    //else MessageBox.Show("Hata : Oda silinemedi");
+
+                    if (Yonetici_Bussiness_Layer.OdaSilBLL(OdaId))
                     {
                         MessageBox.Show("Oda başarıyla silindi");
                         Yonetici_DAL.OdaGoruntule(OdaListeGridView);
-
                     }
-                    else MessageBox.Show("Hata : Oda silinemedi");
+                    else
+                    {
+                        MessageBox.Show("Hata : Oda silinemedi");
+                    }
                 }
                 else
                 {
@@ -103,7 +113,7 @@ namespace OtelYönetimProjesi
             MessageBox.Show(mesaj);
             if (basarili)
             {
-
+                MessageBox.Show(mesaj);
             }
         }
 
@@ -118,6 +128,11 @@ namespace OtelYönetimProjesi
                 OdaFiyattxt.Text = row.Cells["oda_fiyat"].Value.ToString();
                 selectedOdaId = Convert.ToInt32(row.Cells["oda_id"].Value);
             }
+        }
+
+        private void Oda_Islem_Load(object sender, EventArgs e)
+        {
+            Yonetici_DAL.OdaGoruntule(OdaListeGridView);
         }
     }
 }

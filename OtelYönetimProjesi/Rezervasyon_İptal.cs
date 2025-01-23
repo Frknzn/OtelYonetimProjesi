@@ -70,5 +70,10 @@ namespace OtelYönetimProjesi
                 MessageBox.Show("Hata :" + ex.Message);
             }
         }
+
+        private void Rezervasyon_İptal_Load(object sender, EventArgs e)
+        {
+            Yonetici_DAL.RezervasyonGoruntule(RezervasyonListeGridView);
+        }
     }
 }

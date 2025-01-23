@@ -261,6 +261,7 @@
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.Name = "Musteri_İslem";
             this.Size = new System.Drawing.Size(1182, 751);
+            this.Load += new System.EventHandler(this.Musteri_İslem_Load);
             ((System.ComponentModel.ISupportInitialize)(this.MusteriListeGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

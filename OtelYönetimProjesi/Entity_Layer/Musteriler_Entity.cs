@@ -14,6 +14,7 @@ namespace OtelYönetimProjesi.Entity_Layer
         public int Musteri_Kimlik_Numarasi { get => Musteri_Kimlik_Numarasi; set => Musteri_Kimlik_Numarasi = value; }
         public int Musteri_Tel_Numarasi { get => Musteri_Kimlik_Numarasi; set => Musteri_Kimlik_Numarasi= value; }
         public int Musteri_Odeme_Kart { get => Musteri_Odeme_Kart; set => Musteri_Odeme_Kart = value; }
+        
 
     } 
 }

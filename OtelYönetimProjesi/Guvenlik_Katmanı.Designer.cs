@@ -170,6 +170,7 @@
             this.Name = "Guvenlik_Katmanı";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Guvenlik_Katmanı";
+            this.Load += new System.EventHandler(this.Guvenlik_Katmanı_Load);
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

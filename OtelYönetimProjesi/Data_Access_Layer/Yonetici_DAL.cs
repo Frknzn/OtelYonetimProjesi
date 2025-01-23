@@ -15,6 +15,7 @@ using System.Runtime.InteropServices;
 using MySqlX.XDevAPI.Common;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using OtelYönetimProjesi.Entity_Layer;
+using System.Runtime.CompilerServices;
 
 namespace OtelYönetimProjesi.Data_Access_Layer
 {
@@ -41,8 +42,8 @@ namespace OtelYönetimProjesi.Data_Access_Layer
                     komut1.Parameters.AddWithValue("@yoneticikimlik", YoneticiKimlik);
 
                     object sonuc = komut1.ExecuteScalar();
-
-                    if(sonuc != null)
+                    
+                    if (sonuc != null)
                     {
                         Giren_Yonetici_ID.GirisYapanYoneticiID = Convert.ToInt32(sonuc);
                         return true;    
@@ -189,73 +190,73 @@ namespace OtelYönetimProjesi.Data_Access_Layer
             }
         }
 
-        public static bool OdaRezervasonTarihiUygunMu (int OdaId, DateTime GirisTarihi, DateTime CıkısTarihi)
-        {
-            using (MySqlConnection baglanti = BaglantiAc.baglantiGetir())
-            {
-                try
-                {
-                    if (baglanti.State != ConnectionState.Open)
-                    {
-                        baglanti.Open();
-                    }
-                    string query = "SELECT COUNT(*) FROM Rezervasyonlar WHERE oda_id = @odaid AND (giris_tarih <= @cikistarih AND cikis_tarih >= @giristarih)"; 
-                    using (MySqlCommand komut5 = new MySqlCommand(query, baglanti))
-                    {
-                        komut5.Parameters.AddWithValue("@odaid", OdaId);
-                        komut5.Parameters.AddWithValue("@giristarih", GirisTarihi.Date);
-                        komut5.Parameters.AddWithValue("@cikistarih", CıkısTarihi.Date);
+        //public static bool OdaRezervasonTarihiUygunMu(int OdaId, DateTime GirisTarihi, DateTime CıkısTarihi)
+        //{
+        //    using (MySqlConnection baglanti = BaglantiAc.baglantiGetir())
+        //    {
+        //        try
+        //        {
+        //            if (baglanti.State != ConnectionState.Open)
+        //            {
+        //                baglanti.Open();
+        //            }
+        //            string query = "SELECT COUNT(*) FROM Rezervasyonlar WHERE oda_id = @odaid AND (giris_tarih <= @cikistarih AND cikis_tarih >= @giristarih)";
+        //            using (MySqlCommand komut5 = new MySqlCommand(query, baglanti))
+        //            {
+        //                komut5.Parameters.AddWithValue("@odaid", OdaId);
+        //                komut5.Parameters.AddWithValue("@giristarih", GirisTarihi.Date);
+        //                komut5.Parameters.AddWithValue("@cikistarih", CıkısTarihi.Date);
 
-                        int rezervasyonsayisi = Convert.ToInt32(komut5.ExecuteScalar());
-                        return rezervasyonsayisi == 0;
-                    }
+        //                int rezervasyonsayisi = Convert.ToInt32(komut5.ExecuteScalar());
+        //                return rezervasyonsayisi == 0;
+        //            }
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            MessageBox.Show("Tarih kontrolü sırasında hata:" + ex.Message);
+        //            return false;
+        //        }
+        //    }
+        //}
 
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Tarih kontrolü sırasında hata:" + ex.Message);
-                    return false;
-                }
-                
-                
-                 
-            }
-        }
 
-        public static  bool RezervasyonYap (int OdaId, int MusteriId, DateTime GirisTarihi, DateTime CıkısTarihi, long MusteriKimlik, string Musteriİsim, string MusteriSoyisim, int OdaNumarasi)
-        {
-           if (OdaRezervasonTarihiUygunMu(OdaId, GirisTarihi, CıkısTarihi))
-            {
-                using (MySqlConnection baglanti = BaglantiAc.baglantiGetir())
-                {
-                    if (baglanti.State != ConnectionState.Open)
-                    {
-                        baglanti.Open();
-                    }
-                    string query = "Insert Into Rezervasyonlar (oda_id, musteri_id, giris_tarih, cikis_tarih, musteri_kimlik_numarasi, musteri_isim, musteri_soyisim, oda_numarasi) values (@odaid, @musteri_id, @giristarih, @cikistarih, @musterikimliknumarasi, @musteriisim, @musterisoyisim, @odanumarasi)";
-                    MySqlCommand komut6 = new MySqlCommand(query, baglanti);
-                    komut6.Parameters.AddWithValue("@odaid", OdaId);                
-                    komut6.Parameters.AddWithValue("@giristarih", GirisTarihi);
-                    komut6.Parameters.AddWithValue("@cikistarih", CıkısTarihi);
-                    komut6.Parameters.AddWithValue("@musteri_id", MusteriId);
-                    komut6.Parameters.AddWithValue("@musterikimliknumarasi", MusteriKimlik);
-                    komut6.Parameters.AddWithValue("@musteriisim", Musteriİsim);
-                    komut6.Parameters.AddWithValue("@musterisoyisim", MusteriSoyisim);
-                    komut6.Parameters.AddWithValue("@odanumarasi", OdaNumarasi);
 
-                    int rowsAffected = komut6.ExecuteNonQuery();
-                    return rowsAffected > 0;
-                }
-                
-                
-            } 
-            else
-            {
-                
-                return false;   
-            }
-        }
-        
+        //public static bool RezervasyonYap(int OdaId, int MusteriId, DateTime GirisTarihi, DateTime CıkısTarihi, long MusteriKimlik, string Musteriİsim, string MusteriSoyisim, int OdaNumarasi)
+        //{
+        //    if (OdaRezervasonTarihiUygunMu(OdaId, GirisTarihi, CıkısTarihi))
+        //    {
+        //        using (MySqlConnection baglanti = BaglantiAc.baglantiGetir())
+        //        {
+        //            if (baglanti.State != ConnectionState.Open)
+        //            {
+        //                baglanti.Open();
+        //            }
+        //            string query = "Insert Into Rezervasyonlar (oda_id, musteri_id, giris_tarih, cikis_tarih, musteri_kimlik_numarasi, musteri_isim, musteri_soyisim, oda_numarasi) values (@odaid, @musteri_id, @giristarih, @cikistarih, @musterikimliknumarasi, @musteriisim, @musterisoyisim, @odanumarasi)";
+        //            MySqlCommand komut6 = new MySqlCommand(query, baglanti);
+        //            komut6.Parameters.AddWithValue("@odaid", OdaId);
+        //            komut6.Parameters.AddWithValue("@giristarih", GirisTarihi);
+        //            komut6.Parameters.AddWithValue("@cikistarih", CıkısTarihi);
+        //            komut6.Parameters.AddWithValue("@musteri_id", MusteriId);
+        //            komut6.Parameters.AddWithValue("@musterikimliknumarasi", MusteriKimlik);
+        //            komut6.Parameters.AddWithValue("@musteriisim", Musteriİsim);
+        //            komut6.Parameters.AddWithValue("@musterisoyisim", MusteriSoyisim);
+        //            komut6.Parameters.AddWithValue("@odanumarasi", OdaNumarasi);
+
+        //            int rowsAffected = komut6.ExecuteNonQuery();
+        //            return rowsAffected > 0;
+        //        }
+
+        //    }
+        //    else
+        //    {
+
+        //        return false;
+        //    }
+        //}
+
+
+
+
         public static bool MusteriSil(int MusteriId)
         {
             try
@@ -331,39 +332,39 @@ namespace OtelYönetimProjesi.Data_Access_Layer
             }
         }
 
-        public static bool Rezervasyonİptal(int RezervasyonId)
-        {
-            try
-            {
-                using (MySqlConnection baglanti = BaglantiAc.baglantiGetir())
-                {
-                    if (baglanti.State != ConnectionState.Open)
-                    {
-                        baglanti.Open();
-                    }
-                    string query = "Delete From Rezervasyonlar Where rezervasyon_id = @rezervasyonid";
-                    string query2 = "Update Faturalar Set rezervasyon_durum = 'İptal edilmiş rezervasyon' Where rezervasyon_id = @rezervasyonid";
+        //public static bool Rezervasyonİptal(int RezervasyonId)
+        //{
+        //    try
+        //    {
+        //        using (MySqlConnection baglanti = BaglantiAc.baglantiGetir())
+        //        {
+        //            if (baglanti.State != ConnectionState.Open)
+        //            {
+        //                baglanti.Open();
+        //            }
+        //            string query = "Delete From Rezervasyonlar Where rezervasyon_id = @rezervasyonid";
+        //            string query2 = "Update Faturalar Set rezervasyon_durum = 'İptal edilmiş rezervasyon' Where rezervasyon_id = @rezervasyonid";
 
-                    MySqlCommand komutSil = new MySqlCommand(query, baglanti);
-                    MySqlCommand komutGuncelle = new MySqlCommand(query2, baglanti);
+        //            MySqlCommand komutSil = new MySqlCommand(query, baglanti);
+        //            MySqlCommand komutGuncelle = new MySqlCommand(query2, baglanti);
 
-                    komutSil.Parameters.AddWithValue("@rezervasyonid", RezervasyonId);
-                    komutGuncelle.Parameters.AddWithValue("@rezervasyonid", RezervasyonId);
+        //            komutSil.Parameters.AddWithValue("@rezervasyonid", RezervasyonId);
+        //            komutGuncelle.Parameters.AddWithValue("@rezervasyonid", RezervasyonId);
 
 
-                    int rowsAffected = komutSil.ExecuteNonQuery();
-                    int rowsAffected2 = komutGuncelle.ExecuteNonQuery();
+        //            int rowsAffected = komutSil.ExecuteNonQuery();
+        //            int rowsAffected2 = komutGuncelle.ExecuteNonQuery();
 
-                    return rowsAffected > 0 && rowsAffected2 > 0 ;
-                }
+        //            return rowsAffected > 0 && rowsAffected2 > 0 ;
+        //        }
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Müşteri silme sırasında hata : " + ex.Message);
-                return false;
-            }
-        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Müşteri silme sırasında hata : " + ex.Message);
+        //        return false;
+        //    }
+        //}
 
         public  bool MusteriGuncelle( string Musteriİsim, string MusteriSoyisim, string MusteriTelNo, string MusteriOdemeKart, int MusteriID)
         {
@@ -581,70 +582,70 @@ namespace OtelYönetimProjesi.Data_Access_Layer
             }
         }
 
-        public static decimal FaturaHesapla(DateTime GirisTarih, DateTime CikisTarih, int OdaId)
-        {
-            using (MySqlConnection baglanti = BaglantiAc.baglantiGetir())
-            {
-                try
-                {
-                    if (baglanti.State != ConnectionState.Open)
-                    {
-                        baglanti.Open();
-                    }
+        //public static decimal FaturaHesapla(DateTime GirisTarih, DateTime CikisTarih, int OdaId)
+        //{
+        //    using (MySqlConnection baglanti = BaglantiAc.baglantiGetir())
+        //    {
+        //        try
+        //        {
+        //            if (baglanti.State != ConnectionState.Open)
+        //            {
+        //                baglanti.Open();
+        //            }
 
-                    int gunSayisi = (CikisTarih.Date - GirisTarih.Date).Days +1 ;
+        //            int gunSayisi = (CikisTarih.Date - GirisTarih.Date).Days +1 ;
                     
-                    string query =   "Select oda_fiyat From Odalar Where oda_id = @odaid";
-                    using (MySqlCommand komut19 = new MySqlCommand(query, baglanti))
-                    {
-                        komut19.Parameters.AddWithValue("@odaid", OdaId);
-                        object sonuc = komut19.ExecuteScalar();
+        //            string query =   "Select oda_fiyat From Odalar Where oda_id = @odaid";
+        //            using (MySqlCommand komut19 = new MySqlCommand(query, baglanti))
+        //            {
+        //                komut19.Parameters.AddWithValue("@odaid", OdaId);
+        //                object sonuc = komut19.ExecuteScalar();
 
-                        if(sonuc != null && sonuc != DBNull.Value)
-                        {
-                            decimal gunlukFiyat = Convert.ToDecimal(sonuc);
-                            decimal toplamFiyat = gunlukFiyat * gunSayisi;
-                            return toplamFiyat;
-                        }
-                        else
-                        {
-                            MessageBox.Show("Ücret hesaplanırken hata oluştu");
-                            return 0;
-                        }
+        //                if(sonuc != null && sonuc != DBNull.Value)
+        //                {
+        //                    decimal gunlukFiyat = Convert.ToDecimal(sonuc);
+        //                    decimal toplamFiyat = gunlukFiyat * gunSayisi;
+        //                    return toplamFiyat;
+        //                }
+        //                else
+        //                {
+        //                    MessageBox.Show("Ücret hesaplanırken hata oluştu");
+        //                    return 0;
+        //                }
                             
-                    }
+        //            }
                     
-                }catch (Exception ex)
-                {
-                    MessageBox.Show ("HATA :" + ex.Message);
-                    return 0;
-                }
+        //        }catch (Exception ex)
+        //        {
+        //            MessageBox.Show ("HATA :" + ex.Message);
+        //            return 0;
+        //        }
                 
-            }
-        }
+        //    }
+        //}
 
-        public static int SonRezervasyonIdGetir()
-        {
-            using (MySqlConnection baglanti = BaglantiAc.baglantiGetir())
-            {
-                try
-                {
-                    if (baglanti.State != ConnectionState.Open)
-                    {
-                        baglanti.Open();
-                    }
-                    string query = "Select Last_Insert_Id()";
-                    using(MySqlCommand komut =  new MySqlCommand(query,baglanti))
-                    {
-                        return Convert.ToInt32(komut.ExecuteScalar());
-                    }
-                }catch (Exception ex)
-                {
-                    MessageBox.Show("HATA" +  ex.Message);
-                    return 0;
-                }
-            }
-        }
+        //public static int SonRezervasyonIdGetir()
+        //{
+        //    using (MySqlConnection baglanti = BaglantiAc.baglantiGetir())
+        //    {
+        //        try
+        //        {
+        //            if (baglanti.State != ConnectionState.Open)
+        //            {
+        //                baglanti.Open();
+        //            }
+        //            string query = "Select Last_Insert_Id()";
+        //            using(MySqlCommand komut =  new MySqlCommand(query,baglanti))
+        //            {
+        //                return Convert.ToInt32(komut.ExecuteScalar());
+        //            }
+        //        }catch (Exception ex)
+        //        {
+        //            MessageBox.Show("HATA" +  ex.Message);
+        //            return 0;
+        //        }
+        //    }
+        //}
     
         public  static bool FaturaKayıtGoruntule( DataGridView FaturaListeGridview)
         {
@@ -681,46 +682,46 @@ namespace OtelYönetimProjesi.Data_Access_Layer
             }
         }
 
-        public static bool FaturaKaydet( int Ücret, string Musteriİsim, string MusteriSoyisim, long MusteriKimlik, long MusteriTelNo, long MusteriOdemeKart, int RezervasyonId, int OdaNumarasi, DateTime GirisTarihi, DateTime CıkısTarihi)
-        {
-            using (MySqlConnection baglanti = BaglantiAc.baglantiGetir())
-            {
-                try
-                {
-                    if(baglanti.State != ConnectionState.Open)
-                    {
-                        baglanti.Open();
-                    }
-                    string query = " Insert Into Faturalar ( ucret, musteri_isim, musteri_soyisim, musteri_kimlik_numarasi, musteri_tel_numarasi, musteri_odeme_kart, rezervasyon_id, oda_numarasi, giris_tarih, cikis_tarih) values ( @ucret, @musteriisim, @musterisoyisim, @musterikimliknumarasi, @musteritelnumarasi, @musteriodemekart, @rezervasyonid, @odanumarasi, @giristarih, @cikistarih)";
-                    using (MySqlCommand komut = new MySqlCommand(query, baglanti))
-                    {
+        //public static bool FaturaKaydet( int Ücret, string Musteriİsim, string MusteriSoyisim, long MusteriKimlik, long MusteriTelNo, long MusteriOdemeKart, int RezervasyonId, int OdaNumarasi, DateTime GirisTarihi, DateTime CıkısTarihi)
+        //{
+        //    using (MySqlConnection baglanti = BaglantiAc.baglantiGetir())
+        //    {
+        //        try
+        //        {
+        //            if(baglanti.State != ConnectionState.Open)
+        //            {
+        //                baglanti.Open();
+        //            }
+        //            string query = " Insert Into Faturalar ( ucret, musteri_isim, musteri_soyisim, musteri_kimlik_numarasi, musteri_tel_numarasi, musteri_odeme_kart, rezervasyon_id, oda_numarasi, giris_tarih, cikis_tarih) values ( @ucret, @musteriisim, @musterisoyisim, @musterikimliknumarasi, @musteritelnumarasi, @musteriodemekart, @rezervasyonid, @odanumarasi, @giristarih, @cikistarih)";
+        //            using (MySqlCommand komut = new MySqlCommand(query, baglanti))
+        //            {
                         
-                        komut.Parameters.AddWithValue("@ucret", Ücret);
-                        komut.Parameters.AddWithValue("@musteriisim", Musteriİsim);
-                        komut.Parameters.AddWithValue("@musterisoyisim", MusteriSoyisim);
-                        komut.Parameters.AddWithValue("@musterikimliknumarasi", MusteriKimlik);
-                        komut.Parameters.AddWithValue("@musteritelnumarasi", MusteriTelNo);
-                        komut.Parameters.AddWithValue("@musteriodemekart", MusteriOdemeKart);
-                        komut.Parameters.AddWithValue("@rezervasyonid", RezervasyonId);
-                        komut.Parameters.AddWithValue("@odanumarasi", OdaNumarasi);
-                        komut.Parameters.AddWithValue("@giristarih", GirisTarihi);
-                        komut.Parameters.AddWithValue("@cikistarih", CıkısTarihi);
+        //                komut.Parameters.AddWithValue("@ucret", Ücret);
+        //                komut.Parameters.AddWithValue("@musteriisim", Musteriİsim);
+        //                komut.Parameters.AddWithValue("@musterisoyisim", MusteriSoyisim);
+        //                komut.Parameters.AddWithValue("@musterikimliknumarasi", MusteriKimlik);
+        //                komut.Parameters.AddWithValue("@musteritelnumarasi", MusteriTelNo);
+        //                komut.Parameters.AddWithValue("@musteriodemekart", MusteriOdemeKart);
+        //                komut.Parameters.AddWithValue("@rezervasyonid", RezervasyonId);
+        //                komut.Parameters.AddWithValue("@odanumarasi", OdaNumarasi);
+        //                komut.Parameters.AddWithValue("@giristarih", GirisTarihi);
+        //                komut.Parameters.AddWithValue("@cikistarih", CıkısTarihi);
 
-                        int rowsAffected = komut.ExecuteNonQuery();
-                        return rowsAffected > 0;
+        //                int rowsAffected = komut.ExecuteNonQuery();
+        //                return rowsAffected > 0;
                         
 
-                    }                                           
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("HATA : " + ex.Message);
-                    return false;
-                }
-            }
-        }
+        //            }                                           
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            MessageBox.Show("HATA : " + ex.Message);
+        //            return false;
+        //        }
+        //    }
+        //}
 
-        public static bool HesapAyarlarıGuncelle(string Yoneticiİsim, string YoneticiSoyisim, long YoneticiTelNumarasi, string YoneticiGuvenlikSoru, string YoneticiGuvenlikCevap, int YoneticiSifre)// BUSİNESS KATMANINDA BÜTÜN BİLGİLERİN GÜNCELLENMESİ İÇİN UYARI YAP, AYNI ZAMANDA ŞİFRE VE ŞİFRE TEKRAR KISIMLARI AYNI OLSUN
+        public static bool HesapAyarlarıGuncelle(string Yoneticiİsim, string YoneticiSoyisim, long YoneticiTelNumarasi, string YoneticiGuvenlikSoru, string YoneticiGuvenlikCevap, int YoneticiSifre)
         {
             using (MySqlConnection baglanti = BaglantiAc.baglantiGetir()) 
             {
@@ -746,7 +747,7 @@ namespace OtelYönetimProjesi.Data_Access_Layer
             }
         }
      
-        public static bool YeniYoneticiKayıt(string Yoneticiİsim, string YoneticiSoyisim, string YoneticiKimlik, int YoneticiSifre, string YoneticiGuvenlikSoru, string YoneticiGuvenlikCevap, string YoneticiTelNumarasi)  // YÖNETİCİ KAYDEDERKEN GİRİLEN ŞİFRE VE ŞİFRE TEKRARIN AYNI OLMASI İÇİN BUSSİNESS LAYERA ŞART YAZ
+        public static bool YeniYoneticiKayıt(string Yoneticiİsim, string YoneticiSoyisim, string YoneticiKimlik, int YoneticiSifre, string YoneticiGuvenlikSoru, string YoneticiGuvenlikCevap, string YoneticiTelNumarasi)  
         {
             
             try
@@ -780,29 +781,29 @@ namespace OtelYönetimProjesi.Data_Access_Layer
             }
             
         }
-        public static bool YoneticiKimlikKontrol(string YoneticiKimlik)
-        {
-            try
-            {
-                using (MySqlConnection baglanti = BaglantiAc.baglantiGetir())
-                {
-                    if (baglanti.State != ConnectionState.Open)
-                    {
-                        baglanti.Open();
+        //public static bool YoneticiKimlikKontrol(string YoneticiKimlik)
+        //{
+        //    try
+        //    {
+        //        using (MySqlConnection baglanti = BaglantiAc.baglantiGetir())
+        //        {
+        //            if (baglanti.State != ConnectionState.Open)
+        //            {
+        //                baglanti.Open();
 
-                    }
-                    string query = "Select Count(*) From Yoneticiler Where yonetici_kimlik_numarasi = @yoneticikimliknumarasi";
-                    MySqlCommand komut = new MySqlCommand(query, baglanti);
-                    komut.Parameters.AddWithValue("@musterikimliknumarasi", YoneticiKimlik);
-                    int kayitKontrol = Convert.ToInt32(komut.ExecuteScalar());
-                    return kayitKontrol > 0;
-                }
-            }
-            catch
-            {
-                return false;
-            }
-        }
+        //            }
+        //            string query = "Select Count(*) From Yoneticiler Where yonetici_kimlik_numarasi = @yoneticikimliknumarasi";
+        //            MySqlCommand komut = new MySqlCommand(query, baglanti);
+        //            komut.Parameters.AddWithValue("@musterikimliknumarasi", YoneticiKimlik);
+        //            int kayitKontrol = Convert.ToInt32(komut.ExecuteScalar());
+        //            return kayitKontrol > 0;
+        //        }
+        //    }
+        //    catch
+        //    {
+        //        return false;
+        //    }
+        //}
 
         public string GuvenlikSorusuGetir(string YoneticiKimlik)
         {
@@ -854,7 +855,6 @@ namespace OtelYönetimProjesi.Data_Access_Layer
             }
         }
         
-
         public bool GuvenlikSifreGuncelle (string YoneticiKimlik , string YoneticiSifre)
         {
             try
@@ -880,5 +880,311 @@ namespace OtelYönetimProjesi.Data_Access_Layer
                 throw new Exception(ex.Message);
             }
         }
+
+        public static (string Yoneticiİsim, string YoneticiSoyisim, string YoneticiKimlik, string YoneticiTelNumarasi) YoneticiBilgiGetir(int YoneticiID)
+        {
+            using (MySqlConnection baglanti = BaglantiAc.baglantiGetir())
+            {
+                try
+                {
+                    if (baglanti.State != ConnectionState.Open)
+                    {
+                        baglanti.Open();
+                    }
+
+
+                    string query = "Select yonetici_isim, yonetici_soyisim, yonetici_kimlik, yonetici_tel_numarasi From Yoneticiler Where yonetici_id = @yoneticiid";
+                    using (MySqlCommand komut = new MySqlCommand(query, baglanti))
+                    {
+                        komut.Parameters.AddWithValue("@yoneticiid", YoneticiID);
+
+
+
+                        using (MySqlDataReader reader = komut.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                return (reader["yonetici_isim"].ToString(), reader["yonetici_soyisim"].ToString(), reader["yonetici_kimlik"].ToString(), reader["yonetici_tel_numarasi"].ToString());
+                            }
+
+                            return (null, null, null, null);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    throw;
+                }
+
+            }
+        }
+
+        public DataTable BoşOdalarıGetir(DateTime GirisTarih, DateTime CikisTarih)
+        {
+            using (MySqlConnection baglanti = BaglantiAc.baglantiGetir())
+            {
+                try
+                {
+                    if (baglanti.State != ConnectionState.Open)
+                    {
+                        baglanti.Open();
+                    }
+                    string query = "Select oda_id As odaid , oda_numarasi As odanumarasi , oda_tur As odatur , oda_fiyat As odafiyat , oda_durum As odadurum From Odalar Where oda_durum = 'Boş' And oda_id Not In (Select oda_id From Rezervasyonlar Where (@baslangic <= cikis_tarih And @bitis >= giris_tarih))";
+
+                    MySqlCommand komut = new MySqlCommand(query, baglanti);
+                    komut.Parameters.AddWithValue("@baslangic", GirisTarih);
+                    komut.Parameters.AddWithValue("@bitis", CikisTarih);
+                    DataTable veritablosu = new DataTable();
+                    MySqlDataAdapter dataAdapter = new MySqlDataAdapter(komut);
+                    dataAdapter.Fill(veritablosu);
+                    return veritablosu;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Boş odalar getirilirken hata : " + ex.Message);
+
+                }
+            }
+        }
+
+        public DataTable MusaitOdalarıGetir ( DateTime GirisTarih, DateTime CikisTarih)
+        {
+            var veriTablosu = new DataTable();
+            using(var baglanti = BaglantiAc.baglantiGetir())
+            {
+                if(baglanti.State != ConnectionState.Open)
+                {
+                    baglanti.Open();
+                }
+                string query = "Select oda_id As odaid , oda_numarasi As odanumarasi , oda_tur As odatur , oda_fiyat As odafiyat , 'Boş' As 'oda_durum' From Odalar Where oda_id Not In ( Select Distinct oda_id From Rezervasyonlar Where (@giris_tarih Between giris_tarih And cikis_tarih) Or (@cikis_tarih Between giris_tarih And cikis_tarih) Or (giris_tarih Between @giris_tarih And @cikis_tarih )) Order By oda_numarasi";
+                using(var komut = new MySqlDataAdapter(query, baglanti))
+                {
+                    komut.SelectCommand.Parameters.AddWithValue("@giris_tarih", GirisTarih);
+                    komut.SelectCommand.Parameters.AddWithValue("@cikis_tarih", CikisTarih);
+                    komut.Fill(veriTablosu);
+                }
+            }
+            return veriTablosu;
+        }
+      
+        public static (bool Basarili, int RezervasyonId) RezervasyonYap (int OdaId, int MusteriId, DateTime GirisTarih, DateTime CikisTarih, long MusteriKimlik, long MusteriTel , long MusteriKart, string Musteriİsim, string MusteriSoyisim, int OdaNumarasi, decimal OdaFiyat)
+        {
+            using (MySqlConnection baglanti = BaglantiAc.baglantiGetir())
+            {
+                if (baglanti.State != ConnectionState.Open)
+                {
+                    baglanti.Open();
+                }
+                using (MySqlTransaction transaction = baglanti.BeginTransaction())
+                {
+                    try
+                    {
+                        int rezervasyonId = 0;
+                        string rezervasyonQuery = "Insert Into Rezervasyonlar (oda_id , musteri_id, giris_tarih, cikis_tarih, musteri_kimlik_numarasi, musteri_isim, musteri_soyisim, oda_numarasi) Values (@odaid, @musteriid, @giristarih, @cikistarih, @musterikimliknumarasi, @musteriisim, @musterisoyisim, @odanumarasi); Select Last_Insert_ID();"; 
+                        using (MySqlCommand rezervasyonKomut = new MySqlCommand(rezervasyonQuery, baglanti, transaction))
+                        {
+                            rezervasyonKomut.Parameters.AddWithValue("@odaid", OdaId);
+                            rezervasyonKomut.Parameters.AddWithValue("@musteriid", MusteriId);
+                            rezervasyonKomut.Parameters.AddWithValue("@giristarih", GirisTarih);
+                            rezervasyonKomut.Parameters.AddWithValue("@cikistarih", CikisTarih);
+                            rezervasyonKomut.Parameters.AddWithValue("@musterikimliknumarasi", MusteriKimlik);
+                            rezervasyonKomut.Parameters.AddWithValue("@musteriisim", Musteriİsim);
+                            rezervasyonKomut.Parameters.AddWithValue("@musterisoyisim", MusteriSoyisim);
+                            rezervasyonKomut.Parameters.AddWithValue("@odanumarasi", OdaNumarasi);
+
+                            rezervasyonId = Convert.ToInt32(rezervasyonKomut.ExecuteScalar());
+                            if (rezervasyonId <= 0) 
+                            {
+                                transaction.Rollback();
+                                return (false,0);
+                            }
+                        }
+                        string odaQuery = "Update Odalar Set oda_durum = 'Dolu' Where oda_id = @odaid";
+                        using (MySqlCommand odaKomut = new MySqlCommand(odaQuery, baglanti, transaction))
+                        {
+                            odaKomut.Parameters.AddWithValue("@odaid", OdaId);
+                            if(odaKomut.ExecuteNonQuery() <= 0)
+                            {
+                                transaction.Rollback();
+                                return (false, rezervasyonId);
+                            }
+                        }
+                        int gunSayisi = (CikisTarih - GirisTarih).Days ;
+                        decimal toplamTutar = gunSayisi * OdaFiyat;
+                        string faturaQuery = "Insert Into Faturalar (ucret, musteri_isim, musteri_soyisim, musteri_kimlik_numarasi, musteri_tel_numarasi, musteri_odeme_kart, rezervasyon_id, oda_numarasi, giris_tarih, cikis_tarih) values ( @ucret, @musteriisim, @musterisoyisim, @musterikimliknumarasi, @musteritelnumarasi, @musteriodemekart, @rezervasyonid, @odanumarasi, @giristarih, @cikistarih)";
+                        using(MySqlCommand faturaKomut = new MySqlCommand(faturaQuery, baglanti, transaction))
+                        {
+                            faturaKomut.Parameters.AddWithValue("@ucret", toplamTutar);
+                            faturaKomut.Parameters.AddWithValue("@musteriisim", Musteriİsim);
+                            faturaKomut.Parameters.AddWithValue("@musterisoyisim", MusteriSoyisim);
+                            faturaKomut.Parameters.AddWithValue("@musterikimliknumarasi", MusteriKimlik);
+                            faturaKomut.Parameters.AddWithValue("@musteritelnumarasi", MusteriTel);
+                            faturaKomut.Parameters.AddWithValue("@musteriodemekart", MusteriKart);
+                            faturaKomut.Parameters.AddWithValue("@odanumarasi", OdaNumarasi);
+                            faturaKomut.Parameters.AddWithValue("@giristarih", GirisTarih);
+                            faturaKomut.Parameters.AddWithValue("@cikistarih", CikisTarih);
+                            faturaKomut.Parameters.AddWithValue("@rezervasyonid", rezervasyonId);
+
+                            if (faturaKomut.ExecuteNonQuery() <= 0)
+                            {
+                                transaction.Rollback();
+                                return (false, rezervasyonId);
+                            }
+                        }
+                        transaction.Commit();
+                        return (true, rezervasyonId);
+                    }
+                    catch (Exception )
+                    {
+                        transaction.Rollback();
+                        return (false, 0);
+                    }
+                }
+            }
+        }
+        public static bool Rezervasyonİptal(int RezervasyonID)
+        {
+            try
+            {
+                using (MySqlConnection baglanti = BaglantiAc.baglantiGetir())
+                {
+                    if (baglanti.State != ConnectionState.Open)
+                    {
+                        baglanti.Open();
+                    }
+                    using(MySqlTransaction transaction = baglanti.BeginTransaction())
+                    {
+                        try
+                        {
+                            string odaIDQQuery= "SELECT oda_id FROM Rezervasyonlar WHERE rezervasyon_id = @rezervasyonid";
+                            int odaID;
+                            using (MySqlCommand odaIDKomut = new MySqlCommand(odaIDQQuery, baglanti, transaction))
+                            {
+                                odaIDKomut.Parameters.AddWithValue("@rezervasyonid", RezervasyonID);
+                                object sonuc = odaIDKomut.ExecuteScalar();
+                                if(sonuc == null)
+                                {
+                                    throw new Exception("Rezervasyon bulunamadı");
+                                }
+                                odaID = Convert.ToInt32(sonuc);
+                            }
+                            string rezervasyonSilQuery = "Delete From Rezervasyonlar Where rezervasyon_id = @rezervasyonid";
+                            using (MySqlCommand komutSil = new MySqlCommand(rezervasyonSilQuery, baglanti, transaction))
+                            {
+                                komutSil.Parameters.AddWithValue("@rezervasyonid", RezervasyonID);
+                                int rowsAffected = komutSil.ExecuteNonQuery();
+                                if(rowsAffected <= 0)
+                                {
+                                    throw new Exception("Rezervasyon silinemedi");
+                                }
+                            }
+                            string faturaQuery = "Update Faturalar Set rezervasyon_durum = 'İptal edilmiş rezervasyon' Where rezervasyon_id = @rezervasyonid";
+                            using (MySqlCommand komutGuncelle = new MySqlCommand (faturaQuery, baglanti, transaction))
+                            {
+                                komutGuncelle.Parameters.AddWithValue("@rezervasyonid", RezervasyonID);
+                                int rowsAffected2 = komutGuncelle.ExecuteNonQuery();
+                                if(rowsAffected2 <= 0)
+                                {
+                                    MessageBox.Show("Fatura güncellenemedi veya bulunamadı");
+                                }
+                            }
+                            string odaQuery = "Update Odalar Set oda_durum = 'Boş' Where oda_id = @odaid";
+                            using (MySqlCommand odaKomut = new MySqlCommand(odaQuery, baglanti, transaction))
+                            {
+                                odaKomut.Parameters.AddWithValue("@odaid", odaID);
+                                int rowsAffected3 = odaKomut.ExecuteNonQuery();
+                                if(rowsAffected3 <= 0)
+                                {
+                                    throw new Exception("Oda durum güncellenemedi");
+                                }
+                            }
+                            transaction.Commit();
+                            MessageBox.Show("Rezervasyon başarıyla iptal edildi ve oda durumu güncellendi");
+                            return true;
+                        }
+                        catch (Exception ex) 
+                        {
+                            transaction.Rollback();
+                            throw new Exception("İşlem sırasında hata : " + ex.Message);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Rezerasyon iptal sırasında hata : " + ex.Message);
+                return false;
+            }
+
+        }
+
+        public int MusteriSayisiniGetir()
+        {
+            using (var baglanti = BaglantiAc.baglantiGetir())
+            {
+                if (baglanti.State != ConnectionState.Open)
+                    baglanti.Open();
+
+                string query = "SELECT COUNT(*) FROM Musteriler";
+                using (var komut = new MySqlCommand(query, baglanti))
+                {
+                    return Convert.ToInt32(komut.ExecuteScalar());
+                }
+            }
+        }
+
+        public int OdaSayisiniGetir()
+        {
+            using (var baglanti = BaglantiAc.baglantiGetir())
+            {
+                if (baglanti.State != ConnectionState.Open)
+                    baglanti.Open();
+
+                string query = "SELECT COUNT(*) FROM Odalar";
+                using (var komut = new MySqlCommand(query, baglanti))
+                {
+                    return Convert.ToInt32(komut.ExecuteScalar());
+                }
+            }
+        }
+
+        public int PersonelSayisiniGetir()
+        {
+            using (var baglanti = BaglantiAc.baglantiGetir())
+            {
+                if (baglanti.State != ConnectionState.Open)
+                    baglanti.Open();
+
+                string query = "SELECT COUNT(*) FROM Personeller";
+                using (var komut = new MySqlCommand(query, baglanti))
+                {
+                    return Convert.ToInt32(komut.ExecuteScalar());
+                }
+            }
+        }
+
+        public int RezervasyonSayisiGetir()
+        {
+            using(var baglanti = BaglantiAc.baglantiGetir())
+            {
+                try
+                {
+                    if (baglanti.State != ConnectionState.Open)
+                        baglanti.Open();
+                    string query = "Select Count(*) From Rezervasyonlar r Inner Join Faturalar f On r.rezervasyon_id = f.rezervasyon_id Where f.rezervasyon_durum = @rezervasyondurum";
+                    using (var komut = new MySqlCommand(query, baglanti))
+                    {
+                        komut.Parameters.AddWithValue("@rezervasyondurum", "Aktif Rezervasyon");
+                        return Convert.ToInt32(komut.ExecuteScalar());
+                    }
+                }catch(Exception ex)
+                {
+                    throw new Exception("Aktif rezervasyon sayısı alınırken hata: " + ex.Message);
+                }
+            }
+        }
+        
+
     }
 }

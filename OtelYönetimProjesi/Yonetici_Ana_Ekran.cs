@@ -30,7 +30,7 @@ namespace OtelYönetimProjesi
 
         private void Yonetici_Ana_Ekran_Load(object sender, EventArgs e)
         {
-
+            GuncelTarihtxt.Text = DateTime.Now.ToString("dd/MM/yy");
         }
 
         private void OdalariGorbtn_Click(object sender, EventArgs e)
@@ -132,6 +132,7 @@ namespace OtelYönetimProjesi
             GostergePanel.Height = AnaSayfabtn.Height;
             GostergePanel.Top = AnaSayfabtn.Top;
             yonetici_Ana_Sayfa1.BringToFront();
+            yonetici_Ana_Sayfa1.SayilariGuncelle();
         }
 
         private void Müsteriİslembtn_Click_1(object sender, EventArgs e)
@@ -144,9 +145,13 @@ namespace OtelYönetimProjesi
 
         private void Rezervasyonİslembtn_Click_1(object sender, EventArgs e)
         {
+            //GostergePanel.Height = Rezervasyonİslembtn.Height;
+            //GostergePanel.Top = Rezervasyonİslembtn.Top;
+            //rezervasyon_İslem1.BringToFront();
+
             GostergePanel.Height = Rezervasyonİslembtn.Height;
             GostergePanel.Top = Rezervasyonİslembtn.Top;
-            rezervasyon_İslem1.BringToFront();
+            rezervasyon_Yap1.BringToFront();
         }
 
         private void Rezervasyonİptalbtn_Click_1(object sender, EventArgs e)
@@ -204,6 +209,11 @@ namespace OtelYönetimProjesi
         }
 
         private void yonetici_Ana_Sayfa1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void YoneticiUstPanel_Paint(object sender, PaintEventArgs e)
         {
 
         }

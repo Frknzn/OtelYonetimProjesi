@@ -3,12 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\HP\\source\\repos\\OtelYonetimProjesi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{95BFAD79-3707-4389-A039-294E2C66B4EA}|OtelY\u00F6netimProjesi\\OtelY\u00F6netimProjesi.csproj|c:\\users\\hp\\source\\repos\\otelyonetimprojesi\\otely\u00F6netimprojesi\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{95BFAD79-3707-4389-A039-294E2C66B4EA}|OtelY\u00F6netimProjesi\\OtelY\u00F6netimProjesi.csproj|solutionrelative:otely\u00F6netimprojesi\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{95BFAD79-3707-4389-A039-294E2C66B4EA}|OtelY\u00F6netimProjesi\\OtelY\u00F6netimProjesi.csproj|c:\\users\\hp\\source\\repos\\otelyonetimprojesi\\otely\u00F6netimprojesi\\data_access_layer\\yonetici_dal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{95BFAD79-3707-4389-A039-294E2C66B4EA}|OtelY\u00F6netimProjesi\\OtelY\u00F6netimProjesi.csproj|solutionrelative:otely\u00F6netimprojesi\\data_access_layer\\yonetici_dal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{95BFAD79-3707-4389-A039-294E2C66B4EA}|OtelY\u00F6netimProjesi\\OtelY\u00F6netimProjesi.csproj|c:\\users\\hp\\source\\repos\\otelyonetimprojesi\\otely\u00F6netimprojesi\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{95BFAD79-3707-4389-A039-294E2C66B4EA}|OtelY\u00F6netimProjesi\\OtelY\u00F6netimProjesi.csproj|solutionrelative:otely\u00F6netimprojesi\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{95BFAD79-3707-4389-A039-294E2C66B4EA}|OtelY\u00F6netimProjesi\\OtelY\u00F6netimProjesi.csproj|C:\\Users\\HP\\source\\repos\\OtelYonetimProjesi\\otely\u00F6netimprojesi\\rezervasyon_\u0130slem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{95BFAD79-3707-4389-A039-294E2C66B4EA}|OtelY\u00F6netimProjesi\\OtelY\u00F6netimProjesi.csproj|solutionrelative:otely\u00F6netimprojesi\\rezervasyon_\u0130slem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{95BFAD79-3707-4389-A039-294E2C66B4EA}|OtelY\u00F6netimProjesi\\OtelY\u00F6netimProjesi.csproj|C:\\Users\\HP\\source\\repos\\OtelYonetimProjesi\\otely\u00F6netimprojesi\\rezervasyon_\u0130slem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{95BFAD79-3707-4389-A039-294E2C66B4EA}|OtelY\u00F6netimProjesi\\OtelY\u00F6netimProjesi.csproj|solutionrelative:otely\u00F6netimprojesi\\rezervasyon_\u0130slem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{95BFAD79-3707-4389-A039-294E2C66B4EA}|OtelY\u00F6netimProjesi\\OtelY\u00F6netimProjesi.csproj|C:\\Users\\HP\\source\\repos\\OtelYonetimProjesi\\otely\u00F6netimprojesi\\business_layer\\yonetici_bussiness_layer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{95BFAD79-3707-4389-A039-294E2C66B4EA}|OtelY\u00F6netimProjesi\\OtelY\u00F6netimProjesi.csproj|solutionrelative:otely\u00F6netimprojesi\\business_layer\\yonetici_bussiness_layer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{95BFAD79-3707-4389-A039-294E2C66B4EA}|OtelY\u00F6netimProjesi\\OtelY\u00F6netimProjesi.csproj|C:\\Users\\HP\\source\\repos\\OtelYonetimProjesi\\otely\u00F6netimprojesi\\oda_islem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{95BFAD79-3707-4389-A039-294E2C66B4EA}|OtelY\u00F6netimProjesi\\OtelY\u00F6netimProjesi.csproj|solutionrelative:otely\u00F6netimprojesi\\oda_islem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{95BFAD79-3707-4389-A039-294E2C66B4EA}|OtelY\u00F6netimProjesi\\OtelY\u00F6netimProjesi.csproj|C:\\Users\\HP\\source\\repos\\OtelYonetimProjesi\\otely\u00F6netimprojesi\\oda_islem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{95BFAD79-3707-4389-A039-294E2C66B4EA}|OtelY\u00F6netimProjesi\\OtelY\u00F6netimProjesi.csproj|solutionrelative:otely\u00F6netimprojesi\\oda_islem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,27 +39,79 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\OtelYonetimProjesi\\OtelY\u00F6netimProjesi\\Form1.cs",
-              "RelativeDocumentMoniker": "OtelY\u00F6netimProjesi\\Form1.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\OtelYonetimProjesi\\OtelY\u00F6netimProjesi\\Form1.cs",
-              "RelativeToolTip": "OtelY\u00F6netimProjesi\\Form1.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAABIAAAAZAAAA",
+              "Title": "Yonetici_DAL.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\OtelYonetimProjesi\\OtelY\u00F6netimProjesi\\Data_Access_Layer\\Yonetici_DAL.cs",
+              "RelativeDocumentMoniker": "OtelY\u00F6netimProjesi\\Data_Access_Layer\\Yonetici_DAL.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\OtelYonetimProjesi\\OtelY\u00F6netimProjesi\\Data_Access_Layer\\Yonetici_DAL.cs",
+              "RelativeToolTip": "OtelY\u00F6netimProjesi\\Data_Access_Layer\\Yonetici_DAL.cs",
+              "ViewState": "AQIAAHwDAAAAAAAAAAAAAKcAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-08T10:42:56.93Z",
+              "WhenOpened": "2025-01-08T22:15:44.13Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\OtelYonetimProjesi\\OtelY\u00F6netimProjesi\\Form1.cs",
-              "RelativeDocumentMoniker": "OtelY\u00F6netimProjesi\\Form1.cs",
-              "ToolTip": "C:\\Users\\HP\\source\\repos\\OtelYonetimProjesi\\OtelY\u00F6netimProjesi\\Form1.cs [Design]",
-              "RelativeToolTip": "OtelY\u00F6netimProjesi\\Form1.cs [Design]",
+              "DocumentIndex": 3,
+              "Title": "Yonetici_Bussiness_Layer.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\OtelYonetimProjesi\\OtelY\u00F6netimProjesi\\Business_Layer\\Yonetici_Bussiness_Layer.cs",
+              "RelativeDocumentMoniker": "OtelY\u00F6netimProjesi\\Business_Layer\\Yonetici_Bussiness_Layer.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\OtelYonetimProjesi\\OtelY\u00F6netimProjesi\\Business_Layer\\Yonetici_Bussiness_Layer.cs",
+              "RelativeToolTip": "OtelY\u00F6netimProjesi\\Business_Layer\\Yonetici_Bussiness_Layer.cs",
+              "ViewState": "AQIAAAgCAAAAAAAAAAAAAFMCAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-08T10:42:54.858Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-01-09T15:42:41.218Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Rezervasyon_\u0130slem.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\OtelYonetimProjesi\\OtelY\u00F6netimProjesi\\Rezervasyon_\u0130slem.cs",
+              "RelativeDocumentMoniker": "OtelY\u00F6netimProjesi\\Rezervasyon_\u0130slem.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\OtelYonetimProjesi\\OtelY\u00F6netimProjesi\\Rezervasyon_\u0130slem.cs",
+              "RelativeToolTip": "OtelY\u00F6netimProjesi\\Rezervasyon_\u0130slem.cs",
+              "ViewState": "AQIAAG8AAAAAAAAAAAAcwD4AAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-10T13:09:11.962Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Rezervasyon_\u0130slem.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\OtelYonetimProjesi\\OtelY\u00F6netimProjesi\\Rezervasyon_\u0130slem.cs",
+              "RelativeDocumentMoniker": "OtelY\u00F6netimProjesi\\Rezervasyon_\u0130slem.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\OtelYonetimProjesi\\OtelY\u00F6netimProjesi\\Rezervasyon_\u0130slem.cs [Design]",
+              "RelativeToolTip": "OtelY\u00F6netimProjesi\\Rezervasyon_\u0130slem.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-10T13:09:11.17Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Oda_Islem.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\OtelYonetimProjesi\\OtelY\u00F6netimProjesi\\Oda_Islem.cs",
+              "RelativeDocumentMoniker": "OtelY\u00F6netimProjesi\\Oda_Islem.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\OtelYonetimProjesi\\OtelY\u00F6netimProjesi\\Oda_Islem.cs",
+              "RelativeToolTip": "OtelY\u00F6netimProjesi\\Oda_Islem.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABAAAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-10T12:59:16.958Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Oda_Islem.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\OtelYonetimProjesi\\OtelY\u00F6netimProjesi\\Oda_Islem.cs",
+              "RelativeDocumentMoniker": "OtelY\u00F6netimProjesi\\Oda_Islem.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\OtelYonetimProjesi\\OtelY\u00F6netimProjesi\\Oda_Islem.cs [Design]",
+              "RelativeToolTip": "OtelY\u00F6netimProjesi\\Oda_Islem.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-10T12:59:15.267Z"
             }
           ]
         }

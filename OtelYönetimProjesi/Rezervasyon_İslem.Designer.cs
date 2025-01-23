@@ -192,6 +192,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Rezervasyon_İslem";
             this.Size = new System.Drawing.Size(1182, 751);
+            this.Load += new System.EventHandler(this.Rezervasyon_İslem_Load);
             ((System.ComponentModel.ISupportInitialize)(this.OdaListeGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MusteriListGridView)).EndInit();
             this.ResumeLayout(false);

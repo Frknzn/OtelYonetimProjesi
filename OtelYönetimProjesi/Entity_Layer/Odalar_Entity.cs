@@ -12,6 +12,8 @@ namespace OtelYönetimProjesi.Entity_Layer
         public int Oda_Numarasi {  get => Oda_Numarasi; set => Oda_Numarasi = value;}
         public string Oda_Tur { get => Oda_Tur; set => Oda_Tur = value; }
         public int Oda_Fiyat { get => Oda_Fiyat; set => Oda_Fiyat = value;}
+        public string Oda_Durum { get => Oda_Durum; set => Oda_Durum = value;}
+
 
     }
 }

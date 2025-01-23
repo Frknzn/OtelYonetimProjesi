@@ -1,6 +1,9 @@
-﻿using OtelYönetimProjesi.Data_Access_Layer;
+﻿using MySql.Data.MySqlClient;
+using OtelYönetimProjesi.Data_Access_Layer;
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Security.Cryptography;
@@ -12,11 +15,11 @@ namespace OtelYönetimProjesi.Business_Layer
 {
     public class Yonetici_Bussiness_Layer
     {
-        private readonly Yonetici_DAL Yonetici_Dal;
+        private static Yonetici_DAL Yonetici_Dal = new Yonetici_DAL();
 
         public Yonetici_Bussiness_Layer()
         {
-            Yonetici_Dal = new Yonetici_DAL();
+            //Yonetici_Dal = new Yonetici_DAL();
         }
 
         public static (bool basarili, string mesaj) YoneticiGirisBLL(string YoneticiKimlik, string YoneticiSifre)
@@ -550,5 +553,126 @@ namespace OtelYönetimProjesi.Business_Layer
 
             return Yonetici_Dal.GuvenlikSifreGuncelle(YoneticiKimlik, YoneticiSifre);
         }
+
+        public DataTable BosOdalarıGetirBLL(DateTime GirisTarih, DateTime CikisTarih)
+        {
+            
+            if (GirisTarih >= CikisTarih)
+            {
+                throw new Exception("Başlangıç tarihi, bitiş tarihinden büyük olamaz!");
+            }
+
+            if (GirisTarih < DateTime.Now.Date)
+            {
+                throw new Exception("Geçmiş tarih için sorgulama yapılamaz!");
+            }
+            
+            return Yonetici_Dal.BoşOdalarıGetir(GirisTarih, CikisTarih);
+        }
+
+        public DataTable MusaitOdalarıGetirBLL(DateTime GirisTarih, DateTime CikisTarih)
+        {
+            if(GirisTarih >= CikisTarih)
+            {
+                throw new Exception("Giriş tarihi, çıkış tarihinden sonra olamaz");
+            }
+            if (GirisTarih < DateTime.Now)
+            {
+                throw new Exception("Geçmiş tarih için rezervasyon yapılamaz");
+            }
+            if((CikisTarih - GirisTarih).TotalDays > 30)
+            {
+                throw new Exception("30 günü aşan bi tarih için rezervasyon yapılamaz");
+            }
+            return Yonetici_Dal.MusaitOdalarıGetir(GirisTarih,CikisTarih);
+        }
+
+        public static (bool Basarili, string Mesaj, decimal? Tutar) RezervasyonYapBLL(int OdaId, int MusteriId, DateTime GirisTarih, DateTime CikisTarih, long MusteriKimlik, long MusteriTel, long MusteriKart, string Musteriİsim, string MusteriSoyisim, int OdaNumarasi, decimal OdaFiyat)
+        {
+            try
+            {
+                if (GirisTarih >= CikisTarih)
+                {
+                    return (false, "Giriş tarihi, çıkış tarihinden sonra olamaz", null);
+                }
+                if (GirisTarih < DateTime.Now.Date)
+                {
+                    return (false, "Geçmiş tarihli rezervasyon yapılamaz", null);
+                }
+                int gunSayisi = (CikisTarih - GirisTarih).Days + 1;
+                if (gunSayisi <= 0)
+                {
+                    return (false, "En az bir gün rezervasyon yapınız", null);
+                }
+                DataTable odalar = Yonetici_Dal.BoşOdalarıGetir(GirisTarih, CikisTarih);
+                var oda = odalar.AsEnumerable().FirstOrDefault(row => Convert.ToInt32(row["odaid"]) == OdaId);
+                if(oda == null)
+                {
+                    return (false, "Seçilen oda istenilen tarihler arasında dolu", null);
+                }
+                //decimal odaFiyat = Convert.ToDecimal(oda["odafiyat"]);
+                decimal toplamTutar = gunSayisi * OdaFiyat;
+
+                var islem = Yonetici_DAL.RezervasyonYap(OdaId, MusteriId, GirisTarih, CikisTarih, MusteriKimlik, MusteriTel, MusteriKart, Musteriİsim, MusteriSoyisim, OdaNumarasi, OdaFiyat);
+                if (!islem.Basarili)
+                {
+                    return (false, "Rezervasyon işlemi başarısız", null);
+                }
+                return (true, "Rezervasyon başarıyla oluşturuldu", null);
+
+            }
+            catch (Exception ex)
+            {
+                return (false, "Rezervasyon işlemi sırasında hata" + ex.Message, null);
+            }
+        }
+
+        public int RezervasyonSayisiGetirBLL()
+        {
+            try
+            {
+                return Yonetici_Dal.RezervasyonSayisiGetir();
+            }catch (Exception ex)
+            {
+                throw new Exception("İşlem sırasında hata: " + ex.Message);
+            }
+        }
+
+        public int MusteriSayisiGetirBLL()
+        {
+            try
+            {
+                return Yonetici_Dal.MusteriSayisiniGetir();
+            }catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public int OdaSayisiGetirBLL()
+        {
+            try
+            {
+                return Yonetici_Dal.OdaSayisiniGetir();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public int PersonelSayisiGetirBLL()
+        {
+            try
+            {
+                return Yonetici_Dal.PersonelSayisiniGetir();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        
     }
 }
