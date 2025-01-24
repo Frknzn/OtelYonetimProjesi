@@ -1,7 +1,8 @@
 # OtelYonetimProjesi
 ## Proje Hakkında
 Bu proje, otel personeli ve yöneticiler için günlük operasyonları kolaylaştırmayı hedefleyen bir otel yönetim sistemidir.
-
+## Video Linki
+https://youtu.be/LcWGKMxWzW4
 ## Özellikler
 
 ### Yöneticiler
