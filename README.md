@@ -3,6 +3,12 @@
 Bu proje, otel personeli ve yöneticiler için günlük operasyonları kolaylaştırmayı hedefleyen bir otel yönetim sistemidir.
 ## Video Linki
 https://youtu.be/LcWGKMxWzW4
+
+## UML Diyagramları
+![image](https://github.com/user-attachments/assets/a329b382-3c6c-416d-ab84-6be4bec0b98b)
+![image](https://github.com/user-attachments/assets/78206365-8dbf-48a4-9a50-3d99ae809645)
+![image](https://github.com/user-attachments/assets/b015907e-09df-41cf-b774-f6caac0b3290)
+
 ## Özellikler
 
 ### Yöneticiler
