@@ -24,11 +24,8 @@ namespace OtelYönetimProjesi
         public Yonetici_Ana_Sayfa()
         {
             InitializeComponent();
-            yonetici_Bussiness_Layer = new Yonetici_Bussiness_Layer();
-
+            yonetici_Bussiness_Layer = new Yonetici_Bussiness_Layer();         
             
-
-            //this.ParentChanged += Yonetici_Ana_Sayfa_ParentChanged;
         }
 
         private void HavaDurumuGetir()
@@ -117,18 +114,12 @@ namespace OtelYönetimProjesi
             public string Icon { get; set; }
         }
 
-
-
         private void YoneticiKimlikKartlbl_Click(object sender, EventArgs e)
         {
 
         }
 
-
-        //private TextBox YoneticiBilgiİsim;
-        //private TextBox YoneticiBilgiSoyisim;
-        //private TextBox YoneticiBilgiKimlik;
-        //private TextBox YoneticiBilgiTel;
+        
         private void Yonetici_Ana_Sayfa_Load(object sender, EventArgs e)
         {
             try
@@ -164,7 +155,35 @@ namespace OtelYönetimProjesi
             {
                 MessageBox.Show(ex.Message);
             }
+            try
+            {
+                List<Not_Entity_Layer> notlar = yonetici_Bussiness_Layer.NotGetirBLL();
+                
+                NotListBox.Items.Clear();
 
+                foreach (var not in notlar)
+                {
+                    string notMetin = $"[{not.Not_Tarih.ToString("dd:MM")}]{not.Yonetici_Isim}:" +
+                             $"{not.Yonetici_Soyisim}:{Environment.NewLine}" +
+                             $"{not.Not_Metin}{Environment.NewLine}{Environment.NewLine} ";
+
+                    
+                    NotListBox.Items.Add(notMetin);
+                }
+
+
+                
+
+                if (NotListBox.Items.Count == 0)
+                {
+                    NotListBox.Items.Add("Gösterilecek not bulunmamaktadır.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Notlar yüklenirken hata oluştu: " + ex.Message,
+                    "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             SayilariGuncelle();
             HavaDurumuGetir();
                 
@@ -174,7 +193,9 @@ namespace OtelYönetimProjesi
         private void Yonetici_Ana_Sayfa_Activated (object sender, EventArgs e)
         {
             SayilariGuncelle();
+            
         }
+    
 
         public void SayilariGuncelle()
         {
@@ -227,6 +248,55 @@ namespace OtelYönetimProjesi
         protected override void OnHandleDestroyed(EventArgs e)
         {
             
+        }
+
+        private void NotKaydetbtn_Click(object sender, EventArgs e)
+        {
+            
+
+            try
+            {
+
+                
+                if (string.IsNullOrEmpty(Giren_Yonetici_ID.Yonetici_Isim) ||
+                    string.IsNullOrEmpty(Giren_Yonetici_ID.Yonetici_Soyisim))
+                {
+                    MessageBox.Show("Yönetici bilgileri eksik! Lütfen tekrar giriş yapın.", "Hata",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                string notMetin = NotYaztxt.Text.Trim();
+
+                if (string.IsNullOrEmpty(notMetin))
+                {
+                    MessageBox.Show("Not metni boş olamaz");
+                    return;
+                }
+
+                
+                bool islem = yonetici_Bussiness_Layer.NotYazBLL(
+                    notMetin,
+                    Giren_Yonetici_ID.Yonetici_Isim,      
+                    Giren_Yonetici_ID.Yonetici_Soyisim    
+                );
+
+                if (islem)
+                {
+                    MessageBox.Show("Not kaydedildi");
+                    NotYaztxt.Clear();
+                    Yonetici_Ana_Sayfa_Load(null, null);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

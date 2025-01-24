@@ -51,7 +51,7 @@ namespace OtelYönetimProjesi
             string MusteriTelNo = MusteriTeltxt.Text;
             string MusteriOdemeKart = MusteriKarttxt.Text;
 
-           // bool kayıt = Yonetici_DAL.MusteriKaydet (MusteriKimlik,Musteriİsim,MusteriSoyisim,MusteriTelNo,MusteriOdemeKart);
+           
            var(basarili, mesaj) = Yonetici_Bussiness_Layer.MusteriKaydetBLL(Musteriİsim, MusteriSoyisim, MusteriKimlik, MusteriTelNo, MusteriOdemeKart);
             if(basarili)
             {
@@ -96,13 +96,7 @@ namespace OtelYönetimProjesi
                     int MusteriId = Convert.ToInt32(MusteriListeGridView.SelectedRows[0].Cells["musteri_id"].Value);
 
 
-                    //if (Yonetici_DAL.MusteriSil(MusteriId))
-                    //{
-                    //    MessageBox.Show("Müşteri başarıyla silindi");
-                    //    Yonetici_DAL.MusteriGoruntule(MusteriListeGridView);
-
-                    //}
-                    //else MessageBox.Show("Hata : Müşteri silinemedi");
+                    
 
                     if (Yonetici_Bussiness_Layer.MusteriSilBLL(MusteriId))
                     {

@@ -42,36 +42,7 @@ namespace OtelYönetimProjesi
         {
             try
             {
-                //    DateTime girisTarihi = GirisTarihiDateTime.Value;
-                //    DateTime cikisTarihi = CikisTarihiDateTime.Value;
-                //    OdaListeTablo.DataSource = OdaRezervasyon.BosOdalarıGetirBLL(girisTarihi, cikisTarihi);
-                //    if(((DataTable)OdaListeTablo.DataSource).Rows.Count == 0)
-                //    {
-                //        MessageBox.Show("Seçili tarihler arasında boş oda bulunamadı");
-                //    }
-
-
-
-                //Cursor = Cursors.WaitCursor;
-                //BosOdaListelebtn.Enabled = false;
-
-                //var odaTablosu = OdaRezervasyon.MusaitOdalarıGetirBLL(GirisTarihiDateTime.Value, CikisTarihiDateTime.Value);
-                //OdaListeTablo.DataSource = odaTablosu;
-                //if (OdaListeTablo.Columns.Count > 0)
-                //{
-                //    OdaListeTablo.Columns["odaid"].Visible = false;
-                //    OdaListeTablo.Columns["odanumarasi"].HeaderText = "odanumarasi";
-                //    OdaListeTablo.Columns["odatipi"].HeaderText = "odatipi";
-                //    OdaListeTablo.Columns["odadurum"].HeaderText = "odadurum";
-
-
-                //}
-                //if (OdaListeTablo.Rows.Count == 0)
-                //{
-                //    MessageBox.Show("Seçili tarihlerde boş oda bulunamadı");
-                //}
-
-                // İlk olarak null kontrolleri yapalım
+                
                 if (GirisTarihiDateTime == null || CikisTarihiDateTime == null)
                 {
                     MessageBox.Show("Tarih seçim alanları oluşturulmamış!");
@@ -86,20 +57,20 @@ namespace OtelYönetimProjesi
 
                 
 
-                // Verileri çek
+                
                 var sonucTablo = OdaRezervasyon.MusaitOdalarıGetirBLL(
                     GirisTarihiDateTime.Value,
                     CikisTarihiDateTime.Value
                 );
 
-                // Sonuç kontrolü
+                
                 if (sonucTablo == null)
                 {
                     MessageBox.Show("Veri getirilemedi!");
                     return;
                 }
 
-                // DataGridView'e verileri yükle
+                
                 OdaListeTablo.DataSource = sonucTablo;
             }
             catch (Exception ex)
@@ -144,7 +115,8 @@ namespace OtelYönetimProjesi
         private void Rezervasyon_Yap_Load(object sender, EventArgs e)
         {
             MusteriListele();
-            //BosOdalarıListele();
+            
+            
             Yonetici_DAL.MusteriGoruntule(MusteriListeTablo);
         }
 

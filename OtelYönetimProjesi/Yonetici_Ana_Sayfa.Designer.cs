@@ -56,6 +56,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.HavaDurumuPanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.NotYaztxt = new System.Windows.Forms.TextBox();
+            this.NotKaydetbtn = new System.Windows.Forms.Button();
+            this.NotListBox = new System.Windows.Forms.ListBox();
             this.AnaEkranPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -77,9 +80,9 @@
             this.AnaEkranPanel1.Controls.Add(this.textBox4);
             this.AnaEkranPanel1.Controls.Add(this.textBox5);
             this.AnaEkranPanel1.Controls.Add(this.textBox6);
-            this.AnaEkranPanel1.Location = new System.Drawing.Point(65, 268);
+            this.AnaEkranPanel1.Location = new System.Drawing.Point(49, 335);
             this.AnaEkranPanel1.Name = "AnaEkranPanel1";
-            this.AnaEkranPanel1.Size = new System.Drawing.Size(248, 404);
+            this.AnaEkranPanel1.Size = new System.Drawing.Size(241, 334);
             this.AnaEkranPanel1.TabIndex = 2;
             // 
             // textBox7
@@ -204,7 +207,7 @@
             // YoneticiKimlikKartlbl
             // 
             this.YoneticiKimlikKartlbl.AutoSize = true;
-            this.YoneticiKimlikKartlbl.Location = new System.Drawing.Point(64, 237);
+            this.YoneticiKimlikKartlbl.Location = new System.Drawing.Point(44, 301);
             this.YoneticiKimlikKartlbl.Name = "YoneticiKimlikKartlbl";
             this.YoneticiKimlikKartlbl.Size = new System.Drawing.Size(194, 28);
             this.YoneticiKimlikKartlbl.TabIndex = 3;
@@ -222,9 +225,9 @@
             this.panel1.Controls.Add(this.textBox3);
             this.panel1.Controls.Add(this.textBox2);
             this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Location = new System.Drawing.Point(742, 90);
+            this.panel1.Location = new System.Drawing.Point(737, 90);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(437, 582);
+            this.panel1.Size = new System.Drawing.Size(442, 239);
             this.panel1.TabIndex = 5;
             // 
             // PersonelSayitxtbox
@@ -324,15 +327,15 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(0)))), ((int)(((byte)(52)))));
             this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Location = new System.Drawing.Point(69, 0);
+            this.panel2.Location = new System.Drawing.Point(46, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(244, 234);
+            this.panel2.Size = new System.Drawing.Size(244, 298);
             this.panel2.TabIndex = 7;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(3, 67);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(238, 228);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -342,25 +345,66 @@
             // HavaDurumuPanel
             // 
             this.HavaDurumuPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.HavaDurumuPanel.Location = new System.Drawing.Point(319, 90);
+            this.HavaDurumuPanel.Location = new System.Drawing.Point(296, 90);
             this.HavaDurumuPanel.Name = "HavaDurumuPanel";
-            this.HavaDurumuPanel.Size = new System.Drawing.Size(421, 239);
+            this.HavaDurumuPanel.Size = new System.Drawing.Size(437, 239);
             this.HavaDurumuPanel.TabIndex = 8;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(319, 59);
+            this.label1.Location = new System.Drawing.Point(296, 59);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(217, 28);
             this.label1.TabIndex = 9;
             this.label1.Text = "Amasya Hava Durumu";
+            // 
+            // NotYaztxt
+            // 
+            this.NotYaztxt.BackColor = System.Drawing.Color.Lavender;
+            this.NotYaztxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.NotYaztxt.Location = new System.Drawing.Point(296, 339);
+            this.NotYaztxt.Multiline = true;
+            this.NotYaztxt.Name = "NotYaztxt";
+            this.NotYaztxt.Size = new System.Drawing.Size(437, 293);
+            this.NotYaztxt.TabIndex = 14;
+            // 
+            // NotKaydetbtn
+            // 
+            this.NotKaydetbtn.BackColor = System.Drawing.Color.Lavender;
+            this.NotKaydetbtn.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.NotKaydetbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NotKaydetbtn.Location = new System.Drawing.Point(587, 638);
+            this.NotKaydetbtn.Name = "NotKaydetbtn";
+            this.NotKaydetbtn.Size = new System.Drawing.Size(144, 39);
+            this.NotKaydetbtn.TabIndex = 16;
+            this.NotKaydetbtn.Text = "Kaydet";
+            this.NotKaydetbtn.UseVisualStyleBackColor = false;
+            this.NotKaydetbtn.Click += new System.EventHandler(this.NotKaydetbtn_Click);
+            // 
+            // NotListBox
+            // 
+            this.NotListBox.BackColor = System.Drawing.Color.Lavender;
+            this.NotListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.NotListBox.Enabled = false;
+            this.NotListBox.FormattingEnabled = true;
+            this.NotListBox.HorizontalScrollbar = true;
+            this.NotListBox.ItemHeight = 28;
+            this.NotListBox.Location = new System.Drawing.Point(737, 339);
+            this.NotListBox.Name = "NotListBox";
+            this.NotListBox.ScrollAlwaysVisible = true;
+            this.NotListBox.Size = new System.Drawing.Size(442, 338);
+            this.NotListBox.TabIndex = 17;
+            this.NotListBox.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // Yonetici_Ana_Sayfa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
+            this.Controls.Add(this.NotListBox);
+            this.Controls.Add(this.NotKaydetbtn);
+            this.Controls.Add(this.NotYaztxt);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.HavaDurumuPanel);
             this.Controls.Add(this.panel2);
@@ -414,5 +458,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel HavaDurumuPanel;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox NotYaztxt;
+        private System.Windows.Forms.Button NotKaydetbtn;
+        private System.Windows.Forms.ListBox NotListBox;
     }
 }

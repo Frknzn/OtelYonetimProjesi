@@ -27,7 +27,7 @@ namespace OtelYönetimProjesi
             string PersonelPozisyon = PersonelPozisyonEkletxt.Text;
             string PersonelTelNumara = PersonelTelEkletxt.Text;
 
-            // bool kayıt = Yonetici_Bussiness_Layer.PersonelKaydetBLL(Personelİsim, PersonelSoyisim, PersonelKimlik, PersonelPozisyon, PersonelTelNumara);
+            
             var (basarili, mesaj) = Yonetici_Bussiness_Layer.PersonelKaydetBLL(Personelİsim, PersonelSoyisim, PersonelKimlik, PersonelPozisyon, PersonelTelNumara);
             if (basarili)
             {
@@ -89,14 +89,7 @@ namespace OtelYönetimProjesi
                 if (guvenlik.Onay)
                 {
                     int PersonelId = Convert.ToInt32(PersonelListeGridView.SelectedRows[0].Cells["personel_id"].Value);
-
-
-                    //if (Yonetici_DAL.PersonelSil(PersonelId))
-                    //{
-                    //    MessageBox.Show("Personel başarıyla silindi");
-                    //    Yonetici_DAL.PersonelGoruntule(PersonelListeGridView);
-                    //}
-                    //else MessageBox.Show("Hata : Personel silinemedi");
+                  
 
                     if (Yonetici_Bussiness_Layer.PersonelSilBLL(PersonelId))
                     {

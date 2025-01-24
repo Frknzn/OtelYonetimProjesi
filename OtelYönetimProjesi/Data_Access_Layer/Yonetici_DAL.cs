@@ -35,24 +35,33 @@ namespace OtelYönetimProjesi.Data_Access_Layer
                 {
                     baglanti.Open();
                 }
-                string query = "Select yonetici_id From Yoneticiler Where yonetici_kimlik = @yoneticikimlik and yonetici_sifre = @yoneticisifre";
+                string query = "Select yonetici_id, yonetici_isim, yonetici_soyisim From Yoneticiler Where yonetici_kimlik = @yoneticikimlik and yonetici_sifre = @yoneticisifre";
                 using (MySqlCommand komut1 = new MySqlCommand(query, baglanti))
                 {
                     komut1.Parameters.AddWithValue("@yoneticisifre", YoneticiSifre);
                     komut1.Parameters.AddWithValue("@yoneticikimlik", YoneticiKimlik);
 
-                    object sonuc = komut1.ExecuteScalar();
-                    
-                    if (sonuc != null)
-                    {
-                        Giren_Yonetici_ID.GirisYapanYoneticiID = Convert.ToInt32(sonuc);
-                        return true;    
-                    }
-                    return false;
-                    //using (MySqlDataReader reader = komut1.ExecuteReader())
+                    //object sonuc = komut1.ExecuteScalar();
+
+                    //if (sonuc != null)
                     //{
-                    //    return reader.HasRows;
+                    //    Giren_Yonetici_ID.GirisYapanYoneticiID = Convert.ToInt32(sonuc);
+                    //    return true;
                     //}
+                    //return false;
+
+
+                    using (MySqlDataReader reader = komut1.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            Giren_Yonetici_ID.GirisYapanYoneticiID = reader.GetInt32("yonetici_id");
+                            Giren_Yonetici_ID.Yonetici_Isim = reader.GetString("yonetici_isim");
+                            Giren_Yonetici_ID.Yonetici_Soyisim = reader.GetString("yonetici_soyisim");
+                            return true;
+                        }
+                        return false;
+                    }
                 }
             }
         }
@@ -1185,6 +1194,65 @@ namespace OtelYönetimProjesi.Data_Access_Layer
             }
         }
         
+        public bool NotYaz (Not_Entity_Layer not)
+        {
+
+            if (Giren_Yonetici_ID.Yonetici_Isim == null || Giren_Yonetici_ID.Yonetici_Soyisim == null)
+            {
+                throw new Exception("Yönetici bilgileri bulunamadı. Lütfen tekrar giriş yapın.");
+            }
+
+            using (MySqlConnection baglanti = BaglantiAc.baglantiGetir())
+            {
+                if(baglanti.State != ConnectionState.Open)
+                {
+                    baglanti.Open();
+                }
+                string query = "Insert Into Notlar (not_metin, not_tarih, yonetici_isim, yonetici_soyisim) Values (@notMetin, CURRENT_TIMESTAMP, @yoneticiIsim, @yoneticiSoyisim)";
+                using(MySqlCommand komut = new MySqlCommand(query, baglanti))
+                {
+                    komut.Parameters.AddWithValue("@notMetin", not.Not_Metin);
+                    //komut.Parameters.AddWithValue("@notTarih", DateTime.Now);
+                    komut.Parameters.AddWithValue("@yoneticiIsim", Giren_Yonetici_ID.Yonetici_Isim);
+                    komut.Parameters.AddWithValue("@yoneticiSoyisim", Giren_Yonetici_ID.Yonetici_Soyisim);
+
+                    int rowsAffected = komut.ExecuteNonQuery();
+                    return (rowsAffected > 0);
+                }
+            }
+        }
+
+        public List <Not_Entity_Layer> NotGetir()
+        {
+            List<Not_Entity_Layer> notlar = new List<Not_Entity_Layer>();
+            using (MySqlConnection baglanti = BaglantiAc.baglantiGetir() )
+            {
+                if (baglanti.State != ConnectionState.Open)
+                {
+                    baglanti.Open();
+                }
+                string query = " Select not_id, not_metin, not_tarih, yonetici_isim, yonetici_soyisim From Notlar Where Date(not_tarih) = CurDate() Order By not_id Desc";
+                using (MySqlCommand komut = new MySqlCommand(query, baglanti)) 
+                using (MySqlDataReader reader = komut.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        notlar.Add(new Not_Entity_Layer
+                        {
+                            Not_ID = reader.GetInt32("not_id"),
+                            Not_Metin = reader.GetString("not_metin"),
+                            Not_Tarih = reader.GetDateTime("not_tarih"),
+                            Yonetici_Isim = reader.GetString("yonetici_isim"),
+                            Yonetici_Soyisim = reader.GetString("yonetici_soyisim")
+
+
+
+                        });
+                    }
+                }
+            }
+            return notlar;
+        }
 
     }
 }

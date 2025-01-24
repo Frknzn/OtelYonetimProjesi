@@ -39,8 +39,8 @@
             this.OdaKaydetbtn = new System.Windows.Forms.Button();
             this.OdaSilbtn = new System.Windows.Forms.Button();
             this.OdaGuncellebtn = new System.Windows.Forms.Button();
-            this.OdaListeGorbtn = new System.Windows.Forms.Button();
             this.OdaTurtxt = new System.Windows.Forms.TextBox();
+            this.OdaListeGorbtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.OdaListeGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -165,6 +165,15 @@
             this.OdaGuncellebtn.UseVisualStyleBackColor = false;
             this.OdaGuncellebtn.Click += new System.EventHandler(this.OdaGuncellebtn_Click);
             // 
+            // OdaTurtxt
+            // 
+            this.OdaTurtxt.BackColor = System.Drawing.Color.Lavender;
+            this.OdaTurtxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.OdaTurtxt.Location = new System.Drawing.Point(108, 268);
+            this.OdaTurtxt.Name = "OdaTurtxt";
+            this.OdaTurtxt.Size = new System.Drawing.Size(221, 34);
+            this.OdaTurtxt.TabIndex = 27;
+            // 
             // OdaListeGorbtn
             // 
             this.OdaListeGorbtn.BackColor = System.Drawing.Color.Lavender;
@@ -174,18 +183,9 @@
             this.OdaListeGorbtn.Name = "OdaListeGorbtn";
             this.OdaListeGorbtn.Size = new System.Drawing.Size(121, 37);
             this.OdaListeGorbtn.TabIndex = 25;
-            this.OdaListeGorbtn.Text = "Listele";
+            this.OdaListeGorbtn.Text = "Yenile";
             this.OdaListeGorbtn.UseVisualStyleBackColor = false;
             this.OdaListeGorbtn.Click += new System.EventHandler(this.OdaListeGorbtn_Click);
-            // 
-            // OdaTurtxt
-            // 
-            this.OdaTurtxt.BackColor = System.Drawing.Color.Lavender;
-            this.OdaTurtxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.OdaTurtxt.Location = new System.Drawing.Point(108, 268);
-            this.OdaTurtxt.Name = "OdaTurtxt";
-            this.OdaTurtxt.Size = new System.Drawing.Size(221, 34);
-            this.OdaTurtxt.TabIndex = 27;
             // 
             // Oda_Islem
             // 
@@ -229,7 +229,7 @@
         private System.Windows.Forms.Button OdaKaydetbtn;
         private System.Windows.Forms.Button OdaSilbtn;
         private System.Windows.Forms.Button OdaGuncellebtn;
-        private System.Windows.Forms.Button OdaListeGorbtn;
         private System.Windows.Forms.TextBox OdaTurtxt;
+        private System.Windows.Forms.Button OdaListeGorbtn;
     }
 }

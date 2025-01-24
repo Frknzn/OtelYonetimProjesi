@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using OtelYönetimProjesi.Data_Access_Layer;
+using OtelYönetimProjesi.Entity_Layer;
 using System;
 using System.CodeDom;
 using System.Collections.Generic;
@@ -54,7 +55,7 @@ namespace OtelYönetimProjesi.Business_Layer
 
                 if (girisBasarili)
                 {
-                    return (true, "Giriş başarılı");
+                    return (true, "Hoşgeldiniz : " + Giren_Yonetici_ID.Yonetici_Isim);
                 }
                 else
                 {
@@ -673,6 +674,24 @@ namespace OtelYönetimProjesi.Business_Layer
             }
         }
 
-        
+        public bool NotYazBLL(string notMetin, string yoneticiIsim, string yoneticiSoyisim)
+        {
+            if (string.IsNullOrEmpty(notMetin))
+                throw new Exception("Not metni boş olamaz!");
+
+            Not_Entity_Layer not = new Not_Entity_Layer
+            {
+                Not_Metin = notMetin,
+                Yonetici_Isim = yoneticiIsim,
+                Yonetici_Soyisim = yoneticiSoyisim
+            };
+            return Yonetici_Dal.NotYaz(not);
+        }
+
+        public List <Not_Entity_Layer> NotGetirBLL()
+        {
+            return Yonetici_Dal.NotGetir();
+        }
+
     }
 }

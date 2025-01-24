@@ -39,7 +39,7 @@
             // RezervasyonListelbl
             // 
             this.RezervasyonListelbl.AutoSize = true;
-            this.RezervasyonListelbl.Location = new System.Drawing.Point(295, 97);
+            this.RezervasyonListelbl.Location = new System.Drawing.Point(66, 97);
             this.RezervasyonListelbl.Name = "RezervasyonListelbl";
             this.RezervasyonListelbl.Size = new System.Drawing.Size(183, 28);
             this.RezervasyonListelbl.TabIndex = 0;
@@ -53,20 +53,20 @@
             this.RezervasyonListeGridView.BackgroundColor = System.Drawing.Color.Lavender;
             this.RezervasyonListeGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.RezervasyonListeGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.RezervasyonListeGridView.Location = new System.Drawing.Point(300, 128);
+            this.RezervasyonListeGridView.Location = new System.Drawing.Point(71, 128);
             this.RezervasyonListeGridView.Name = "RezervasyonListeGridView";
             this.RezervasyonListeGridView.RowHeadersVisible = false;
             this.RezervasyonListeGridView.RowHeadersWidth = 51;
             this.RezervasyonListeGridView.RowTemplate.Height = 24;
             this.RezervasyonListeGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.RezervasyonListeGridView.Size = new System.Drawing.Size(742, 390);
+            this.RezervasyonListeGridView.Size = new System.Drawing.Size(971, 390);
             this.RezervasyonListeGridView.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(484, 102);
+            this.label1.Location = new System.Drawing.Point(255, 102);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(323, 23);
             this.label1.TabIndex = 2;
@@ -77,7 +77,7 @@
             this.Rezervasyonİptalbtn.BackColor = System.Drawing.Color.Lavender;
             this.Rezervasyonİptalbtn.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
             this.Rezervasyonİptalbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Rezervasyonİptalbtn.Location = new System.Drawing.Point(86, 197);
+            this.Rezervasyonİptalbtn.Location = new System.Drawing.Point(285, 524);
             this.Rezervasyonİptalbtn.Name = "Rezervasyonİptalbtn";
             this.Rezervasyonİptalbtn.Size = new System.Drawing.Size(208, 63);
             this.Rezervasyonİptalbtn.TabIndex = 3;
@@ -90,11 +90,11 @@
             this.RezevasyonListelebtn.BackColor = System.Drawing.Color.Lavender;
             this.RezevasyonListelebtn.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
             this.RezevasyonListelebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RezevasyonListelebtn.Location = new System.Drawing.Point(86, 128);
+            this.RezevasyonListelebtn.Location = new System.Drawing.Point(71, 524);
             this.RezevasyonListelebtn.Name = "RezevasyonListelebtn";
             this.RezevasyonListelebtn.Size = new System.Drawing.Size(208, 63);
             this.RezevasyonListelebtn.TabIndex = 4;
-            this.RezevasyonListelebtn.Text = "Listele";
+            this.RezevasyonListelebtn.Text = "Yenile";
             this.RezevasyonListelebtn.UseVisualStyleBackColor = false;
             this.RezevasyonListelebtn.Click += new System.EventHandler(this.RezevasyonListelebtn_Click);
             // 

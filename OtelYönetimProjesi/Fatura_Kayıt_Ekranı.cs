@@ -20,15 +20,23 @@ namespace OtelYönetimProjesi
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //if (Yonetici_DAL.FaturaKayıtGoruntule(FaturaKayıtGridViev))
-            //{
+            if (Yonetici_DAL.FaturaKayıtGoruntule(FaturaKayıtGridViev))
+            {
 
-            //}
+            }
         }
 
         private void Fatura_Kayıt_Ekranı_Load(object sender, EventArgs e)
         {
             Yonetici_DAL.FaturaKayıtGoruntule(FaturaKayıtGridViev);
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (Yonetici_DAL.FaturaKayıtGoruntule(FaturaKayıtGridViev))
+            {
+
+            }
         }
     }
 }

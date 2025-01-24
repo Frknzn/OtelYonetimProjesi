@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.FaturaKayıtGridViev = new System.Windows.Forms.DataGridView();
             this.FaturKayıtlbl = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.FaturaKayıtGridViev)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,11 +72,25 @@
             this.FaturKayıtlbl.TabIndex = 1;
             this.FaturKayıtlbl.Text = "Fatura Kayıtları";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Lavender;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(20, 572);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(129, 50);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Yenile";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // Fatura_Kayıt_Ekranı
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.FaturKayıtlbl);
             this.Controls.Add(this.FaturaKayıtGridViev);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -93,5 +108,6 @@
 
         private System.Windows.Forms.DataGridView FaturaKayıtGridViev;
         private System.Windows.Forms.Label FaturKayıtlbl;
+        private System.Windows.Forms.Button button1;
     }
 }

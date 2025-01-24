@@ -232,7 +232,7 @@
             this.PersonelListeGorbtn.Name = "PersonelListeGorbtn";
             this.PersonelListeGorbtn.Size = new System.Drawing.Size(121, 37);
             this.PersonelListeGorbtn.TabIndex = 25;
-            this.PersonelListeGorbtn.Text = "Listele";
+            this.PersonelListeGorbtn.Text = "Yenile";
             this.PersonelListeGorbtn.UseVisualStyleBackColor = false;
             this.PersonelListeGorbtn.Click += new System.EventHandler(this.PersonelListeGorbtn_Click);
             // 

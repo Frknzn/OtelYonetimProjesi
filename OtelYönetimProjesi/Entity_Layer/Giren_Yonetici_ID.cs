@@ -10,5 +10,10 @@ namespace OtelYönetimProjesi.Entity_Layer
     {
         public static int GirisYapanYoneticiID { get; set; }
 
+        public static string Yonetici_Isim {  get; set; }
+
+        public static string Yonetici_Soyisim { get; set; }
+
+
     }
 }

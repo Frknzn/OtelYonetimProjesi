@@ -230,7 +230,7 @@
             this.MusteriListeGorbtn.Name = "MusteriListeGorbtn";
             this.MusteriListeGorbtn.Size = new System.Drawing.Size(121, 37);
             this.MusteriListeGorbtn.TabIndex = 24;
-            this.MusteriListeGorbtn.Text = "Listele";
+            this.MusteriListeGorbtn.Text = "Yenile";
             this.MusteriListeGorbtn.UseVisualStyleBackColor = false;
             this.MusteriListeGorbtn.Click += new System.EventHandler(this.MusteriListeGorbtn_Click);
             // 

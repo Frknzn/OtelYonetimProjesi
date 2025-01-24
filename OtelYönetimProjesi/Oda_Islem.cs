@@ -31,7 +31,7 @@ namespace OtelYönetimProjesi
             string OdaTur = OdaTurtxt.Text;
             string OdaFiyat = OdaFiyattxt.Text;
 
-            //bool kayıt = Yonetici_DAL.OdaKaydet(OdaNumara, OdaTur, OdaFiyat);
+            
             (bool basarili ,string mesaj) = Yonetici_Bussiness_Layer.OdaKaydetBLL(OdaNumara, OdaTur, OdaFiyat);
             if (basarili)
             {
@@ -70,15 +70,7 @@ namespace OtelYönetimProjesi
                 if (guvenlik.Onay)
                 {
                     int OdaId = Convert.ToInt32(OdaListeGridView.SelectedRows[0].Cells["oda_id"].Value);
-
-
-                    //if (Yonetici_DAL.OdaSil(OdaId))
-                    //{
-                    //    MessageBox.Show("Oda başarıyla silindi");
-                    //    Yonetici_DAL.OdaGoruntule(OdaListeGridView);
-
-                    //}
-                    //else MessageBox.Show("Hata : Oda silinemedi");
+                 
 
                     if (Yonetici_Bussiness_Layer.OdaSilBLL(OdaId))
                     {

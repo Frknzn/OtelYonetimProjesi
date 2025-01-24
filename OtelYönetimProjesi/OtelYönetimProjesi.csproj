@@ -62,6 +62,7 @@
     <Compile Include="Entity_Layer\Faturalar_Entity.cs" />
     <Compile Include="Entity_Layer\Giren_Yonetici_ID.cs" />
     <Compile Include="Entity_Layer\Musteriler_Entity.cs" />
+    <Compile Include="Entity_Layer\Not_Entity_Layer.cs" />
     <Compile Include="Entity_Layer\Odalar_Entity.cs" />
     <Compile Include="Entity_Layer\Personeller_Entity.cs" />
     <Compile Include="Entity_Layer\Rezervasyonlar_Entity.cs" />
